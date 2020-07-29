@@ -1,0 +1,228 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap');
+
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body{
+	overflow-x: hidden; /*to keep from flowing out vertically*/
+  font-family: 'Open Sans', sans-serif;
+  color: #505962;
+  background: white;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-attachment: fixed;
+
+}
+.container{
+	margin: none;
+	padding: none;
+}
+.anim1{
+	margin-left: 802px;
+	margin-top: -104px; 
+}
+
+#Path_1{
+	animation: animate 4s linear infinite;
+}
+
+
+
+.offset:before{
+  height: 4rem;
+  margin-top: -3.5rem;
+  content: "";
+  display: block;
+}
+
+/*navbar section*/
+
+.navbar{
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: .9rem;
+  letter-spacing: .1rem;
+  background-color: rgba(0,0,0,0)!important;
+}
+
+.navbar-brand img{
+  height: 5rem;/* use this to manipulate the logo when you have it*/
+}
+
+.brand-name{
+	margin-left: 6rem;
+	margin-top: -4.25rem;
+	font-weight: 800;
+}
+
+#logo{
+  height: 35px;
+  color: black;
+  padding-left: 2.5rem;
+}
+
+#logo:hover{
+  color: orange;
+  text-decoration: underline;
+}
+
+.navbar-nav li{
+  padding-right: .9rem;
+}
+
+.navbar .navbar-nav .nav-link{
+  color: white;
+  padding-top: 2rem;
+
+}
+.navbar .navbar-nav .nav-link.active,
+.navbar .navbar-nav .nav-link:hover{
+  /*this is to hover on the nav items and to change while on the scroll spy thing*/
+  color: white;
+  text-decoration: underline;
+
+  
+}
+
+.sec1img{
+	height: 475px;
+	width: auto;
+	margin-left: 650px;
+	margin-top: -650px;
+	
+  transition-duration: 0.7s;
+	
+}
+
+.elementAnim{
+	animation: flyin 1.5s ease forwards;
+}
+.elementAnimLeft{
+	animation: flyinLeft 1.5s ease forwards;
+}
+
+.enhance p{
+	color: black;
+	font-size: 40px;
+	font-weight: 700;
+	margin-left: 3.75rem;
+	margin-top: -500px;
+	letter-spacing: .07rem;
+}
+
+.desc1{
+	transition-duration: 0.7s;
+	  cursor: pointer;
+	color: black;
+	font-size: 20px;
+	margin-left: 3.75rem;
+	letter-spacing: .07rem;
+}
+
+.strtBTN{
+	transition-duration: 0.7s;
+	  color: white;
+	  text-align: center;
+	  font-size: 19px;
+	  margin-top: 3%; 	
+	  margin-left: 8rem;
+	  transition-duration: 0.7s;
+	  cursor: pointer;
+	  background-color: white;
+	  
+	  font-weight: 700;
+	  color: #fc7303; 
+	  border-width: 5px;
+	  border-style: solid;
+	  border-image: linear-gradient(to top right, #FFBF00 0%, #F05E23 50%) 1;
+	  
+	  width: 250px;
+	  height: 70px;
+	  
+}
+
+.strtBTN:hover{
+	transition-duration: 0.7s;
+	color: white;
+	 	border: .1px solid #F05E23;
+	  background: linear-gradient(to top right, #FFBF00 0%, #F05E23 50%);
+	  border-radius: 0px;
+	  filter: drop-shadow(0px 0px 25px #F05E23);
+	  transition-duration: 0.7s;
+}
+
+/*------------------------------------animations--------------------------------------------*/
+
+@keyframes animate{
+  0%,100%{
+    d:path("M742,0s104,270,302,326,150,174,150,174-8.418,70.914-40,70c-4.721-.136-78,40-78,40S944,656,952,718s328-22,370,78,308,246,344,10-38-368,100-414,238,84,238,84l34-254-16-328H766Z");
+  }
+  25%{
+    d:path("M742,0s104,200,302,270,150,174,150,174-8.418,70.914-40,70c-4.721-.136-78,40-78,40S944,656,952,718s328-22,350,69,295,230,344,10-38-368,100-414,238,84,238,84l34-254-16-328H766Z");
+  }
+  50%{
+    d:path("M742,0s104,180,302,250,150,174,150,174-8.418,70.914-40,70c-4.721-.136-78,40-78,40S944,656,952,718s328-22,310,65,275,225,344,10-38-368,100-414,238,84,238,84l34-254-16-328H766Z");  }
+  75%{
+    d:path("M742,0s104,250,302,290,150,174,150,174-8.418,70.914-40,70c-4.721-.136-78,40-78,40S944,656,952,718s328-22,330,68,280,237,344,10-38-368,100-414,238,84,238,84l34-254-16-328H766Z");
+  }
+}
+
+
+@keyframes flyin {
+	from{
+		transform: translateX(50%);
+	}
+   to { 
+     
+   }
+}
+
+
+@keyframes flyinLeft {
+	from{
+		transform: translateX(-50%);
+	}
+   to { 
+     
+   }
+}
+
+
+
+
+/*//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/*--- Fixed Background Image --*/
+figure {
+  position: relative;
+  width: 100%;
+  height: 60%;
+  margin: 0!important;
+}
+.fixed-wrap {
+  clip: rect(0, auto, auto, 0);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+#fixed {
+  background-image: url('img/mac.png');
+  position: fixed;
+  display: block;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center center;
+  -webkit-transform: translateZ(0);
+          transform: translateZ(0);
+  will-change: transform;
+}
+/*--- Bootstrap Padding Fix --*/
+[class*="col-"] {
+    padding: 1rem;
+}
