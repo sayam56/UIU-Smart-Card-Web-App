@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap');
 
+:root {
+  --bgcolor: linear-gradient(90deg, rgba(219,219,219,0.8914916308320203) 0%, rgba(255,255,255,0.9783263647255778) 34%, rgba(255,255,255,1) 100%);
+  --bgcolor-rev:linear-gradient(90deg, rgba(255,255,255,1) 100%, rgba(255,255,255,0.9783263647255778) 34%, rgba(219,219,219,0.8914916308320203) 0%);
+  --orangeGradient: linear-gradient(to top right, #FFBF00 0%, #F05E23 50%);
+}
 *{
 	margin: 0;
 	padding: 0;
@@ -8,17 +13,23 @@
 body{
 	overflow-x: hidden; /*to keep from flowing out vertically*/
   font-family: 'Open Sans', sans-serif;
-  color: #505962;
-  background: white;
+  background: var(--bgcolor);
   background-repeat: no-repeat;
   background-size: 100% 100%;
   background-attachment: fixed;
-
+overflow-x: hidden;
 }
+
 .container{
 	margin: none;
 	padding: none;
 }
+
+.scrollOffset{
+	padding-top: 0px;
+	margin-top: 0px;
+}
+/*...................................svg animation.............................*/
 .anim1{
 	margin-left: 802px;
 	margin-top: -104px; 
@@ -27,9 +38,25 @@ body{
 #Path_1{
 	animation: animate 4s linear infinite;
 }
+.anim2{
+	margin-left: -37px;
+	margin-top: 185px; 
+}
 
+#Path_2{
+	animation: animateSecond 4s linear infinite;
+}
 
+.anim3{
 
+	margin-left: 802px;
+	margin-top: 200px; 
+}
+
+#Path_4{
+	animation: animateThird 4s linear infinite;
+}
+/*---------------------------section 1-------------------------------------- */
 .offset:before{
   height: 4rem;
   margin-top: -3.5rem;
@@ -44,11 +71,34 @@ body{
   font-weight: 700;
   font-size: .9rem;
   letter-spacing: .1rem;
+  height: 50px;
   background-color: rgba(0,0,0,0)!important;
+  transition: 0.75s ease;
+/*
+  rgba(0,0,0,0)!important;*/
+}
+
+.bg-dark.scrolled{
+	background-color: rgba(255,255,255,.9) !important;
+	padding-bottom: 25px;
+
+}
+.abc.ncol{
+	color: rgba(240, 94, 35,1)!important;
+}
+
+.hide{
+	display: none;
+}
+
+.abc.ncol:hover{
+	font-weight: 800 !important;
 }
 
 .navbar-brand img{
   height: 5rem;/* use this to manipulate the logo when you have it*/
+	transition: .75s 
+  
 }
 
 .brand-name{
@@ -64,7 +114,7 @@ body{
 }
 
 #logo:hover{
-  color: orange;
+  color: #F05E23;
   text-decoration: underline;
 }
 
@@ -77,18 +127,23 @@ body{
   padding-top: 2rem;
 
 }
+
+
+
 .navbar .navbar-nav .nav-link.active,
 .navbar .navbar-nav .nav-link:hover{
   /*this is to hover on the nav items and to change while on the scroll spy thing*/
   color: white;
   text-decoration: underline;
+  font-weight: 800;
 
-  
 }
 
+
+
 .sec1img{
-	height: 475px;
-	width: auto;
+	max-width: 587px;
+	height: auto;
 	margin-left: 650px;
 	margin-top: -650px;
 	
@@ -103,6 +158,8 @@ body{
 	animation: flyinLeft 1.5s ease forwards;
 }
 
+
+
 .enhance p{
 	color: black;
 	font-size: 40px;
@@ -114,11 +171,15 @@ body{
 
 .desc1{
 	transition-duration: 0.7s;
-	  cursor: pointer;
 	color: black;
 	font-size: 20px;
 	margin-left: 3.75rem;
 	letter-spacing: .07rem;
+}
+
+.getStarted{
+	margin-top: 3%; 	
+	  margin-left: 8rem;
 }
 
 .strtBTN{
@@ -126,12 +187,9 @@ body{
 	  color: white;
 	  text-align: center;
 	  font-size: 19px;
-	  margin-top: 3%; 	
-	  margin-left: 8rem;
 	  transition-duration: 0.7s;
 	  cursor: pointer;
-	  background-color: white;
-	  
+	  background: var(--bgcolor);
 	  font-weight: 700;
 	  color: #fc7303; 
 	  border-width: 5px;
@@ -152,8 +210,98 @@ body{
 	  filter: drop-shadow(0px 0px 25px #F05E23);
 	  transition-duration: 0.7s;
 }
+/*---------------------------SECTION1 ENDS-------------------------------------------------------------------*/
 
-/*------------------------------------animations--------------------------------------------*/
+
+/*-------------------------------------Section 2 Starts-------------------------------------------------------*/
+
+
+
+.sec2img{
+	background: var(--bgcolor);
+	margin-left: 125px;
+	margin-top: -650px;
+	border-radius: 200px;
+	
+}
+
+.sec2img2{
+	height: 185px;
+	margin-left: 80px;
+	margin-top: -1150px;
+	
+
+}
+
+
+
+.offer p{
+	color: black;
+	font-size: 40px;
+	font-weight: 700;
+	margin-left: 60rem;
+	margin-top: -530px;
+	letter-spacing: .07rem;
+
+}
+.orangePoints{
+	margin-top: 40px;
+	background: var(--orangeGradient);
+	height: 32px;
+	width: 32px;
+	border-radius: 50%;
+	margin-left: 60rem;
+	margin-bottom: 40px;
+
+}
+
+.orangePoints p{
+	margin-left: 80px;
+	margin-top: 5px;
+	width: 500px;
+	font-size: 20px;
+	letter-spacing: .07rem;
+}
+
+
+.learnMore{
+	margin-top: 3%; 	
+	  margin-left: 68rem;
+	  background: white;
+}
+
+
+/*--------------------------------------------section 2 Ends--------------------------------------*/
+
+
+/*-----------------------------------------section 3 starts----------------------------------*/
+
+.imgSVG{
+	margin-top: -650px;
+	background: var(--bgcolor-rev);
+	border-radius: 200px;
+	margin-left: 41rem;
+}
+
+.attendance p{
+	color: black;
+	font-size: 40px;
+	font-weight: 700;
+	margin-left: 3.75rem;
+	margin-top: -350px;
+	letter-spacing: .07rem;
+}
+
+.sec3img2{
+	height: 185px;
+	margin-left: 3.75rem;
+	margin-top: -900px;
+}
+
+
+/*-----------------------------------------section 3 ends-----------------------------------=*/
+
+/*------------------------------------animations --------------------------------------------*/
 
 @keyframes animate{
   0%,100%{
@@ -167,6 +315,34 @@ body{
   75%{
     d:path("M742,0s104,250,302,290,150,174,150,174-8.418,70.914-40,70c-4.721-.136-78,40-78,40S944,656,952,718s328-22,330,68,280,237,344,10-38-368,100-414,238,84,238,84l34-254-16-328H766Z");
   }
+}
+
+@keyframes animateSecond{
+	  0%,100%{
+    	d:path("M0,1081.667C385,1313.333,588.333,1288.333,496.667,1370s411.667,96.667,340,0.667S740,1801.667,590,1883.333s-308.333,45-425-23.333S-36.667,1703.333-36.667,1703.333Z");
+	  }
+	  25%{
+	    d:path("M0,1090.667C385,1270.333,550.333,1277.333,496.667,1370s411.667,80.667,310,181.667S740,1790.667,570,1870.333s-308.333,45-425-23.333S-36.667,1680.333-36.667,1703.333Z");
+	  }
+	  50%{
+	    d:path("M0,1099.667C385,1255.333,600.333,1290.333,496.667,1370s411.667,50.667,290,0.667S740,1850.667,595,1883.333s-308.333,45-425-23.333S-36.667,1690.333-36.667,1703.333Z");  }
+	  75%{
+	    d:path("M0,1100.667C385,1265.333,625.333,1299.333,496.667,1370s411.667,60.667,315,100.667S740,1820.667,600,1883.333s-308.333,45-425-23.333S-36.667,1675.333-36.667,1703.333Z");
+	  }
+}
+
+@keyframes animateThird{
+	  0%,100%{
+    	d:path("M1920,2400c-5.2-1.82,32.072-19.05,30-21.667-12.741-16.042,1.249-28.421,0-40-3.059-28.293-11.686-35.975-21.667-53.333-27.743-48.252-52-206-52-206s-173,119.333-426.333,152.667c-198.333,46.667-295,205-341.667,225S965,2473.333,971.667,2675s-180,298.333-16.667,375,640-75,825,48.333,251.667-86.667,251.667-86.667L2025,2400Z");
+	  }
+	  25%{
+	    d:path("M1920,2400c-5.2-1.82,10.072-19.05,15-21.667-12.741-16.042,1.249-0.421,0-40-3.059-28.293-11.686-35.975-21.667-40.333-27.743-48.252-52-206-52-206s-173,80.333-426.333,100.667c-198.333,46.667-295,205-341.667,225S965,2473.333,1000.667,2675s-180,230.333-16.667,375,640-75,825,48.333,251.667-86.667,251.667-86.667L2025,2400Z");
+	  }
+	  50%{
+	    d:path("M1920,2400c-5.2-1.82,0.072-19.05,0-21.667-12.741-16.042,1.249-28.421,0-40-3.059-28.293-11.686-35.975-21.667-25.333-27.743-48.252-52-206-52-206s-173,40.333-426.333,65.667c-198.333,46.667-295,205-341.667,225S965,2473.333,985.667,2675s-180,190.333-16.667,375,640-75,825,48.333,251.667-86.667,251.667-86.667L2025,2400Z");  }
+	  75%{
+	    d:path("M1920,2400c-5.2-1.82,20.072-19.05,35-21.667-12.741-16.042,1.249-0.421,0-40-3.059-28.293-11.686-35.975-21.667-35.333-27.743-48.252-52-206-52-206s-173,80.333-426.333,100.667c-198.333,46.667-295,205-341.667,225S965,2473.333,1010.667,2675s-180,225.333-16.667,375,640-75,825,48.333,251.667-86.667,251.667-86.667L2025,2400Z");
+	  }
 }
 
 
