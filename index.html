@@ -13,9 +13,9 @@
 	<link rel="icon" href="res/logo.ico">
 	
 </head>
-<body>
+<body data-spy="scroll" data-target="#navbarResponsive">
 	
-		<div class="section1">
+		<div class="section1" id="home">
 
 			<div class="anim1">
 				<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="972" height="779.427" viewBox="0 0 1296 1039.236">
@@ -35,9 +35,9 @@
 			</div>
 
 			<div id="navibar">
-					<nav id="navbar" class="navbar navbar-expand-md navbar fixed-top">
+					<nav id="navbar" class="navbar navbar-expand-md navbar-light bg-dark fixed-top">
 
-						<a id="logo" class="navbar-brand elementAnimLeft" href="#carouselExampleIndicators"> <img src="res/main_logo.png"> <div class="brand-name">UIU <br> SMART CARD</div></a>
+						<a id="logo" class="navbar-brand elementAnimLeft" href="index.html"> <img src="res/main_logo.png"> <div class="brand-name">UIU <br> SMART CARD</div></a>
 
 						<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
 							<span class="navbar-toggler-icon"></span>
@@ -45,10 +45,10 @@
 
 						<div class="collapse navbar-collapse elementAnim" id="navbarResponsive">
 							<ul class="navbar-nav ml-auto" style="list-style-type: none;">
-								<li class="nav-item"> <a class="nav-link" href="#home">HOME</a>
-							</li><li class="nav-item"><a class="nav-link" href="#offer">ABOUT US</a>
-							</li><li class="nav-item"><a class="nav-link" href="#expert">CONTACT US</a>
-							</li><li class="nav-item"><a class="nav-link" href="login.php">LOGIN/SIGNUP </a>
+								<li class="nav-item"> <a class="nav-link abc" href="#home">HOME</a>
+							</li><li class="nav-item"><a class="nav-link abc" href="#offerings">OFFERINGS</a>
+							</li><li class="nav-item"><a class="nav-link abc" href="#attendance">ATTENDANCE</a>
+							</li><li class="nav-item"><a class="nav-link abc" href="login.php">LOGIN</a>
 							</li>
 						</ul>
 
@@ -57,7 +57,7 @@
 					</nav>			
 			</div> <!-- navibar ends -->
 
-			<img src="res/landingPage/sec1.png" class="sec1img elementAnim">
+			<img src="res/landingPage/sec1.png" class="sec1img elementAnim responsive">
 
 			<div class="enhance">
 				<p>Enhancing Your <br> University Experience</p>
@@ -66,19 +66,123 @@
 				<p>Makes your life simpler and easier by <br> reducing the hassle involved in all <br> payment and attendance related tasks at <br> your university.</p>
 			</div>
 
-			<a href="#"><input type="button" class="strtBTN elementAnimLeft" name="strtBTN" value="GET STARTED"></a>
+			<a href="#"><input type="button" class="getStarted strtBTN elementAnimLeft" name="strtBTN" value="GET STARTED"></a>
 			
 		</div><!-- section1 ends -->
 
-		<div class="section2">
-			
+		<div class="section2 scrollOffset" id="offerings">
+			<div class="anim2">
+				<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="660.260" height="636.315" viewBox="0 0 880.347 848.42">
+					  <defs>
+					    <style>
+					      .cls-1 {
+					        fill: url(#linear-gradient);
+					      }
+					    </style>
+					    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+					      <stop offset="0" stop-color="#ffbf00"/>
+					      <stop offset="1" stop-color="#f05e23"/>
+					    </linearGradient>
+					  </defs>
+					  <path id="Path_2" data-name="Path 2" class="cls-1" d="M0,1081.667C385,1313.333,588.333,1288.333,496.667,1370s411.667,96.667,340,181.667S740,1801.667,590,1883.333s-308.333,45-425-23.333S-36.667,1703.333-36.667,1703.333Z" transform="translate(36.667 -1081.667)"/>
+					</svg>
+			</div><!-- anim2 ends -->
+
+			<img src="res/landingPage/sec2.png" class="sec2img elementAnimLeft responsive">
+			<img src="res/landingPage/sec2-1.png" class="sec2img2 elementAnimLeft responsive">
+			<div class="offer elementAnim">
+				<p>What We're Offering?</p>
+			</div>
+			<div class="sec2texts elementAnim">
+			 	<div class="orangePoints"> <p>RFID Based Attendance System</p> </div>  
+			 	<div class="orangePoints"> <p>RFID Based Payment System</p> </div>  
+			 	<div class="orangePoints"> <p>Access Through Multiple Platforms</p> </div> 
+			 </div>
+
+			 <a href="#"><input type="button" class="learnMore strtBTN elementAnim" name="strtBTN" value="LEARN MORE"></a>
 		</div><!-- section 2 ends -->
 
-		<div class="section3">
+
+		<div class="section3" id="attendance">
+
+			<div class="anim3">
+				<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="857.857" height="793.6125" viewBox="0 0 1143.857 1058.15">
+					  <defs>
+					    <style>
+					      .cls-1 {
+					        fill: url(#linear-gradient);
+					      }
+					    </style>
+					    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+					      <stop offset="0" stop-color="#ffbf00"/>
+					      <stop offset="1" stop-color="#f05e23"/>
+					    </linearGradient>
+					  </defs>
+					  <path id="Path_4" data-name="Path 4" class="cls-1" d="M1920,2400c-5.2-1.82,32.072-19.05,30-21.667-12.741-16.042,1.249-28.421,0-40-3.059-28.293-11.686-35.975-21.667-53.333-27.743-48.252-52-206-52-206s-173,119.333-426.333,152.667c-198.333,46.667-295,205-341.667,225S965,2473.333,971.667,2675s-180,298.333-16.667,375,640-75,825,48.333,251.667-86.667,251.667-86.667L2025,2400Z" transform="translate(-887.81 -2079)"/>
+				</svg>
+			</div><!-- anim3 ends -->
+			
+			<div class="imgSVG">
+				<object data="res/svg/home-svg.svg" type="image/svg+xml"></object>
+			</div>
+
+			<div class="attendance elementAnim">
+				<p>REAL TIME <br> ATTENDANCE</p>
+			</div>
+			<div class="desc1">
+				<p>Waiting for your name to be called and then <br>responding loud enough and waiting for the rest of  <br> your class to finish up with their attendance is all <br> outdated. With our RFID system, it's much simpler!<br> Point your card at the scanner before you enter the <br> class, and you're done! A total time saver!</p>
+			</div>
+			<img src="res/landingPage/sec2-1.png" class="sec3img2 elementAnimLeft responsive">
+
+			
 			
 		</div> <!-- section3 ends -->
 
 	
 
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
+	<!-- smooth scroll -->
+	<script src="bootstrap-4.3.1-dist/js/smooth-scroll.polyfills.min.js"></script>
+	<!-- scroll effect -->
+	<script src="js/scroll-out.js"></script>
+	<script>
+		
+		/*var targetOffset = $target.offset().top - 70;*/
+		var scroll = new SmoothScroll('a[href*="#"]');
+		
+				ScrollOut({
+					targets: 'div,svg,img,p,a'
+				});
+	</script>
+
+	<script>
+		 $(window).scroll(function(){
+		 $('nav').toggleClass('scrolled', $(this).scrollTop() > 150);
+		 });
+	</script>
+
+	<script>
+		$(window).scroll(function(){
+			if($(this).scrollTop() > 150){
+				$('.abc').addClass('ncol');
+			} else {
+				$('.abc').removeClass('ncol');
+			}
+			});
+	</script>
+
+	<script>
+		$(window).scroll(function(){
+			if($(this).scrollTop() > 150){
+				$('.navbar-brand').addClass('hide');
+			} else {
+				$('.navbar-brand').removeClass('hide');
+			}
+			});
+	</script>
 </body>
 </html>
