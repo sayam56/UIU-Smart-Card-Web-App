@@ -239,7 +239,7 @@ overflow-x: hidden;
 
 /*-------------------------------------Section 2 Starts-------------------------------------------------------*/
 
-
+/*offers*/
 
 .sec2img{
 	background: var(--bgcolor);
@@ -299,7 +299,7 @@ overflow-x: hidden;
 
 
 /*-----------------------------------------section 3 starts----------------------------------*/
-
+/*attendance*/
 .imgSVG{
 	margin-top: -650px;
 	background: var(--bgcolor-rev);
@@ -327,6 +327,7 @@ overflow-x: hidden;
 
 
 /*-----------------------------------------section 4 starts----------------------------*/
+/*payment*/
 .sec4img{
 	background: var(--bgcolor);
 	margin-left: 155px;
@@ -371,7 +372,7 @@ overflow-x: hidden;
 /*----------------------------------------section 4 ends-------------------------------*/
 
 /*-----------------------------------------section 5 starts----------------------------*/
-
+/*android*/
 .sec5img{
 	position: absolute;
 	 z-index: 1;
@@ -407,6 +408,125 @@ overflow-x: hidden;
 
 /*----------------------------------------section 5 ends-------------------------------*/
 
+/*---------------------------------------- footer -------------------------------*/
+footer{
+	height: 60vh;
+  	padding: 1rem 0 3rem;
+
+}
+
+.footerBG{
+	position: absolute;
+	z-index: -1;
+	transform: scale(.7, .7);
+	margin-left: -780px;
+	margin-top: -280px;
+}
+.space{
+	margin-top: 140px;
+}
+
+.footerItems p{
+	color: white;
+	z-index: 1;
+	font-size: 30px;
+	font-weight: 600;
+	margin-left: 3.75rem;
+	margin-top: 20px;
+	letter-spacing: .07rem;
+
+}
+
+.footerItems a:hover{
+  color: white;
+  text-decoration: underline;
+  font-weight: 700;
+
+}
+
+.footerCircle{
+	transform: scale(.85, .85);
+	margin-left: 200px;
+	margin-top: -220px;
+}
+
+.footerCircle img{
+	margin-left: 120px;
+}
+
+.fa-instagram{
+position: relative;
+	font-size: 7rem;
+  border-radius: 40px;
+  color: #fff;
+  vertical-align: middle;
+  background: #d6249f;
+  background: linear-gradient(to top right, #FFBF00 0%, #F05E23 50%);
+  box-shadow: 0px 3px 10px rgba(0,0,0,.25);
+}
+
+.fa-facebook{
+	position: relative;
+	font-size: 7rem;
+  text-align: center;
+  border-radius: 40px;
+  vertical-align: middle;
+ background: linear-gradient(to top right, #FFBF00 0%, #F05E23 50%);
+  color: white;
+  box-shadow: 0px 3px 10px rgba(0,0,0,.25);
+
+}
+.fa-twitter{
+	position: relative;
+	font-size: 7rem;
+  text-align: center;
+  border-radius: 40px;
+  color: #fff;
+  vertical-align: middle;
+  background: linear-gradient(to top right, #FFBF00 0%, #F05E23 50%);
+   color: white;
+   box-shadow: 0px 3px 10px rgba(0,0,0,.25);
+
+}
+
+.icons{
+	
+	margin-left: 460px;
+	margin-top: -180px;
+}
+
+.icons i{
+	margin-right: 200px;
+}
+
+.icons i:hover{
+	transition-duration: 0.2s;
+	color: white;
+ 	border: .1px solid #F05E23;
+  	background: linear-gradient(to top right, #FFBF00 0%, #F05E23 50%);
+  	border-radius: 40px;
+  	filter: drop-shadow(0px 0px 45px #F05E23);
+  	transition-duration: 0.7s;
+}
+
+.followUs p{
+	color: white;
+	z-index: 1;
+	font-size: 30px;
+	font-weight: 600;
+	margin-left: 26.5rem;
+	margin-top: -230px;
+	letter-spacing: .07rem;
+}
+
+.copyright{
+ /* border-top: 1px solid rgba(255, 238, 0,.6);*/
+  width: 100%;
+  color: white;
+  margin-top: 270px;
+  padding-bottom: 0;
+}
+/*---------------------------------------- footer ends -------------------------------*/
 
 /*------------------------------------animations --------------------------------------------*/
 
