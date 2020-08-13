@@ -528,6 +528,136 @@ position: relative;
 }
 /*---------------------------------------- footer ends -------------------------------*/
 
+.flatFooter{
+  left: 0;
+  bottom: 0;
+  width: 100%;
+	background: var(--orangeGradient);
+	height: 7vh;
+	margin-top: -25px;
+}
+
+.copyrightFlat{
+ /* border-top: 1px solid rgba(255, 238, 0,.6);*/
+  width: 100%;
+  color: red;
+  padding-bottom: 0;
+  margin-top: -5vh;
+}
+/*-------------------------------privacy------------------------------------*/
+.privacy{
+	position: absolute;
+	max-width: 550px;
+	height: auto;
+	margin-left: 800px;
+	margin-top: -550px;
+	transition-duration: 0.7s;
+	border-radius: 50%;
+}
+
+.privCirc{
+	position: absolute;
+	background: var(--orangeGradient);
+	height: 560px;
+	width: 560px;
+	border-radius: 50%;
+	margin-left: 795px;
+	margin-top: -555px;
+}
+
+
+/*---------------------------------privacy ends-------------------------*/
+
+
+/*----------------------------------contact----------------------------------------*/
+
+.contactImg{
+	position: absolute;
+	max-width: 1050px;
+	margin-left: 550px;
+	margin-top: -500px;
+	
+  	transition-duration: 0.7s;
+
+}
+.contSVG1{
+	margin-top: 30px;
+	width: 3rem;
+  	text-align: center;
+  	vertical-align: middle;
+  	margin-left: 3.75rem;
+  	margin-bottom: 30px;
+}
+.contSVG1 p{
+	width: 500px;
+	font-size: 19px;
+	font-weight: 800;
+	margin-top: -3.5rem;
+	text-align: left;
+	margin-left: 5rem;
+	}
+.contSVG2{
+	width: 3rem;
+  	text-align: center;
+  	vertical-align: middle;
+  	margin-left: 3.75rem;
+  	margin-bottom: 30px;
+}
+.contSVG2 p{
+	width: 500px;
+	font-size: 19px;
+	font-weight: 600;
+	margin-top: -3rem;
+	text-align: left;
+	margin-left: 5rem;
+	}
+.contSVG3{
+	width: 3rem;
+  	text-align: center;
+  	vertical-align: middle;
+  	margin-left: 3.75rem;
+  	margin-bottom: 30px;
+}
+
+.contSVG3 p{
+	width: 500px;
+	font-size: 19px;
+	font-weight: 600;
+	margin-top: -2.5rem;
+	text-align: left;
+	margin-left: 5rem;
+	}
+
+.office p{
+	width: 500px;
+	font-size: 19px;
+	font-weight: 800;
+	text-align: left;
+	margin-left: 3.75rem;
+	letter-spacing: .07rem;
+}
+
+.flatFooterCont{
+	position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+	background: var(--orangeGradient);
+	height: 7vh;
+	margin-top: -25px;
+}
+
+.copyrightFlatCont{
+	position: fixed;
+ /* border-top: 1px solid rgba(255, 238, 0,.6);*/
+  width: 100%;
+  color: white;
+  padding-bottom: 0;
+  margin-top: 2.5vh;
+}
+/*-----------------------------------contact ends--------------------------------------*/
+
+
 /*------------------------------------animations --------------------------------------------*/
 
 @keyframes animate{
