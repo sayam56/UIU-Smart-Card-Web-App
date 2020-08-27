@@ -1,0 +1,52 @@
+.top{
+  width: 8.5in;
+  display: block;
+}
+.top .image{
+  width:  160px;
+  height: 160px;
+
+
+}
+
+.top .image img{
+  margin-left: 65px;
+  margin-top: 15px;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 1px solid black;
+
+}
+
+
+.primaryinfo{
+  margin-left: 265px;
+  margin-top: -155px;
+}
+
+.fullName{
+    
+    font-size: 35px;
+    font-style: bold;
+    color: black;
+    margin-bottom: -5px;
+}
+
+.title{
+  font-size: 25px;
+  color: var(--themecolor);
+/*  margin-bottom: 5px;*/
+}
+
+.about{
+  font-size: 15px;
+  font-weight: bold;
+  color: black;
+  margin-bottom: 30px;
+}
+
+
+.space1{
+  margin-top: 75px;
+}
