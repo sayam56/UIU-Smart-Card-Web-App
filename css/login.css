@@ -47,23 +47,73 @@ body{
 }
 
 .inputBox{
-	color: red;
+	color: rgb(179, 178, 177);
 	height: 200px;
 	width: 500px;
+	padding-left: 50px;
+	padding-top: 5px;
 	border: 0px solid black;
 	border-radius: 35px;
 	margin-left: 870px;
-	margin-top: 2rem;
+	margin-top: 3rem;
 	-webkit-box-shadow: -1px 2px 83px -18px rgba(0,0,0,0.75);
 	-moz-box-shadow: -1px 2px 83px -18px rgba(0,0,0,0.75);
 	box-shadow: -1px 2px 83px -18px rgba(0,0,0,0.75);
 }
 
-.radioBTN{
-	margin-left: 900px;
-	margin-top: 2.5rem;
-	margin-bottom: -4rem;
+
+
+.textbox{
+  width: 85%;
+  overflow: hidden;
+  font-size: 20px;
+  padding: 8px 0;
+  margin: 8px 0;
+  border-bottom: 2px solid rgb(179, 178, 177);
 }
+
+.textbox:hover{
+ color: rgba(240, 94, 35,1);
+  border-bottom: 2px solid rgba(240, 94, 35,1);
+}
+
+.textbox i{
+	/*color: rgb(179, 178, 177);*/
+  	width: 26px;
+  	float: left;
+  	text-align: center;
+}
+
+
+.textbox input{
+  border: none;
+  outline: none;
+  background: none;
+  color: black;
+  font-size: 18px;
+  width: 80%;
+  float: left;
+  margin: 0 10px;
+}
+
+.gap{
+	margin-left: 50px;
+}
+.radiobtn{
+	color: black;
+    width: 100%;
+    overflow: hidden;
+    font-size: 20px;
+    padding: 8px 0;
+    margin: 8px 0;
+
+}
+
+.radiobtn:hover{
+  color: rgba(240, 94, 35,1);
+/*  border-bottom: 2px solid rgba(240, 94, 35,1);*/
+}
+
 
 .loginBTN{
 	transition-duration: 0.7s;
@@ -81,7 +131,7 @@ body{
 	  width: 500px;
 	  height: 70px;
 	  margin-left: 870px;
-	  margin-top: 7rem;
+	  margin-top: 3rem;
 }
 
 .loginBTN:hover{
@@ -93,4 +143,5 @@ body{
 	  filter: drop-shadow(0px 0px 25px #F05E23);
 	  transition-duration: 0.7s;
 }
+
 

@@ -36,35 +36,40 @@
 			<div class="inputBox">
 			<!-- here goes the input types -->
 			
-				<div class="container">
+				<div class="textbox">
+    							<i class="fas fa-user"></i>
+    							<input type="text" name="uname" placeholder="Username" required>
+   							</div>
 
-				    <label for="email"><b>Email</b></label>
-				    <input type="text" placeholder="Enter Email" name="email" required>
+  							<div class="textbox">
+   								<i class="fas fa-lock"></i>
+    							<input type="password" name="password" placeholder="Password" required>
+							</div>
 
-				    <label for="pass"><b>Password</b></label>
-				    <input type="password" placeholder="Enter Password" name="pass" required>
+							
+							<div class="radiobtn ">
+								Login As:<br>
+								<div ><span>
+								<input type="radio" name="role"  value="student" checked> Student
+								</span>
+								
+								
+								<span class="gap">
+                				<input type="radio" name="role"  value="teacher"> Teacher
+                				</span >
+                				
+								<span class="gap">
+                				<input type="radio" name="role"  value="vendor"> Vendor
+                				</span>
+                				
+                				</div>
+							</div>
 
-					</div><!-- container -->
+			
 
 			</div><!-- inputBox -->
 
-			<div class="radioBTN">
-				Choose Your Role:<br>
-				<div>
-					<span>
-						<input type="radio" name="role"  value="student" checked> Student
-					</span>
-					<span>
-    					<input type="radio" name="role"  value="teacher"> Teacher
-    				</span>
-    				<span>
-    					<input type="radio" name="role"  value="vendor"> Vendor
-    				</span>
-    				<span>
-    					<input type="radio" name="role"  value="admin"> Admin
-    				</span>
-				</div>				
-			</div> <!-- radiobtn ends -->
+			
 
 			<button type="submit" class="loginBTN elementAnimLeft">LOGIN</button>
 
