@@ -38,7 +38,7 @@
 			
 				<div class="textbox">
     							<i class="fas fa-user"></i>
-    							<input type="text" name="uname" placeholder="Username" required>
+    							<input type="text" name="email" placeholder="Email/Username" required>
    							</div>
 
   							<div class="textbox">

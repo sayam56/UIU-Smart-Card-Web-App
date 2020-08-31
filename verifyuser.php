@@ -1,5 +1,16 @@
 <?php
 	session_start();
+
+		/*DB connect*/
+			try{
+                $conn=new PDO("mysql:host=localhost;dbname=smart_card;",'root','');
+                echo "<script>console.log('connection successful');</script>";
+                
+                $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            }
+            catch(PDOException $e){
+                echo "<script>window.alert('connection error');</script>";
+            }
 ?>
 
 <!DOCTYPE html>
@@ -23,30 +34,18 @@
 <body>
 	<?php
 
-	/*DB connect*/
-			try{
-                $conn=new PDO("mysql:host=localhost;dbname=gym_database;",'root','');
-                echo "<script>console.log('connection successful');</script>";
-                
-                $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            }
-            catch(PDOException $e){
-                echo "<script>window.alert('connection error');</script>";
-            }
+	
 
-            if(isset($_POST['uname'])) $fname=$_POST['uname'];
-            if(isset($_POST['password'])) $password=md5($_POST['password']);
+            if(isset($_POST['email'])) $email=$_POST['email'];
+            if(isset($_POST['password'])) $password=$_POST['password'];
             if(isset($_POST['role'])) $role = $_POST['role'];
 
-    		$uname = $_POST['uname'];
-			$password = md5($_POST['password']);
-			$role = $_POST['role'];
-            
 
-            if ($role == 'Trainer') {
+
+            if ($role == 'student') {
             	
 	            	try{
-	                $sqlquery="SELECT * from trainers where T_Fname= '".$fname."' and T_pass= '".$password."' ";
+	                $sqlquery="SELECT * from student where s_email= '".$email."' and s_password= '".$password."' ";
 					$object=$conn->query($sqlquery);
 					$row= $object->rowCount();
 					
@@ -55,9 +54,11 @@
 			
 			 			 	$row1= $object->fetchAll();
 									foreach ($row1 as $key) {
-										$_SESSION["fname"]= $fname;
-            							$_SESSION["email"]=$key[3];
-		                            header('Location: trainer_profile.php');
+										$_SESSION["s_name"]= $key[2];
+            							$_SESSION["s_email"]=$email;
+            							$_SESSION["s_tag"]=$key[1];
+            							$_SESSION["s_id"]=$key[0];
+		                            header('Location: student_dashboard.php');
 		                            break;
 		                            }
 		
@@ -76,7 +77,7 @@
 						header('Location: incorrect_password.html');
 					} 
 
-	            }
+	            } /*try ends*/
 
 	            catch(PDOException $e){
 	                echo "<script>window.alert('validation error');</script>";
@@ -87,10 +88,10 @@
 
 
 
-            else
+            else if ($role == 'teacher')
             {
 		            try{
-		                $sqlquery="SELECT * from members where M_Fname= '".$fname."' and M_pass= '".$password."' ";
+		                $sqlquery="SELECT * from teacher where t_email= '".$email."' and t_password= '".$password."' ";
 						$object= $conn->query($sqlquery);
 						$row= $object->rowCount();
 						echo "from member $row";
@@ -101,9 +102,51 @@
 
 			            $row1= $object->fetchAll();
 						foreach ($row1 as $key) {
-							$_SESSION["fname"]= $fname;
-							$_SESSION["email"]=$key[3];
-	                        header('Location: member_profile.php');
+							$_SESSION["t_name"]= $key[2];
+							$_SESSION["t_email"]=$email;
+							$_SESSION["t_tag"]=$key[1];
+							$_SESSION["t_id"]=$key[0];
+	                        header('Location: teacher_dashboard.php');
+	                        break;
+                        }
+						#echo 'WELCOME'.$fname." "."<br>";
+						$is_invalid = 1;
+						break;
+					}
+					
+		
+					if ($is_invalid==0)
+					{
+						#echo "invalid Passcode or Username";
+						header('Location: incorrect_password.html');
+					} 
+		                
+		            } /*try ends*/
+
+		            catch(PDOException $e){
+		                echo "<script>window.alert('validaiton error');</script>";
+		            }
+        }
+
+        else{
+
+        	try{
+		                $sqlquery="SELECT * from vendor where vendor_uid= '".$email."' and vendor_password= '".$password."' ";
+						$object= $conn->query($sqlquery);
+						$row= $object->rowCount();
+						echo "from member $row";
+		                $is_invalid=0;
+
+					while($row>0) {
+
+
+			            $row1= $object->fetchAll();
+						foreach ($row1 as $key) {
+							$_SESSION["v_name"]= $key[2];
+							$_SESSION["v_uid"]=$email;
+							$_SESSION["v_reader"]=$key[0];
+							$_SESSION["v_id"]=$key[1];
+	                        header('Location: vendor_dashboard.php');
 	                        break;
                         }
 						#echo 'WELCOME'.$fname." "."<br>";
@@ -123,6 +166,7 @@
 		            catch(PDOException $e){
 		                echo "<script>window.alert('validaiton error');</script>";
 		            }
+
         }
 
 
