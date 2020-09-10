@@ -7,114 +7,154 @@
   <meta name="description" content="RFID Based Smart Card System">
   <meta name="keywords" content="RFID,Smart,Card">
   <title>UIU Smart Card-Profile</title>
-  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="css/profile.css">
   <link rel="icon" href="res/logo.ico">
   <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-  
-  <script>
-    $(document).ready(function(){
-      $(".hamburger").click(function(){
-         $(".wrapper").toggleClass("collapse");
-      });
-
-      $(".books").click(function(){
-         $(".books").toggleClass("active");
-      });
-    });
-  </script>
 </head>
+
+<?php
+      session_start();
+
+    /*DB connect*/
+  try{
+        $conn=new PDO("mysql:host=localhost;dbname=smart_card;",'root','');
+        echo "<script>console.log('connection successful');</script>";
+        
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    }
+    catch(PDOException $e){
+        echo "<script>window.alert('connection error');</script>";
+    }
+
+  $role=$_SESSION["role"];
+  $id=$_SESSION["id"];
+
+  $name;
+  $photo;
+  $dept;
+  $tag;
+  $email;
+  $phone;
+  $batch='';
+
+  if ($role == 'student') {
+
+    //write the things here
+/*    
+    try{
+            $sqlquery="SELECT * from vendor where vendor_id= '".$id."'  ";
+            $object= $conn->query($sqlquery);
+            $row1= $object->fetchAll();
+
+            foreach ($row1 as $key) {
+              $_SESSION["v_name"]= $key[2];
+              $_SESSION["v_uid"]=$email;
+              $_SESSION["v_reader"]=$key[0];
+              $_SESSION["v_id"]=$key[1];
+              $_SESSION["role"]=$role;
+                          header('Location: vendor_dashboard.php');
+                          break;
+                        }        
+                }
+
+                catch(PDOException $e){
+                    echo "<script>window.alert('validaiton error');</script>";
+                }*/
+
+
+  }else{
+    try{
+        $sqlquery="SELECT * from teacher where t_id= '".$id."'  ";
+            $object= $conn->query($sqlquery);
+            $row1= $object->fetchAll();
+
+            foreach ($row1 as $key) {
+                        $name= $key[2];
+                        $photo= $key[7];
+                        $tag= $key[1];
+                        $email= $key[3];
+                        $phone= $key[6];
+                        $dept= $key[5];
+                        }        
+                
+
+    }catch(PDOException $e){
+      echo $e;
+    }
+
+  }
+?>
+
 <body>
 
-<div class="wrapper">
-  <div class="top_navbar">
-    <div class="hamburger">
-       <div class="one"></div>
-       <div class="two"></div>
-       <div class="three"></div>
-    </div>
-    <div class="top_menu">
-      <div class="logo">PROFILE PAGE</div>
-      <ul>
-        <!-- <li><a href="#">
-          <i class="fas fa-search"></i></a></li>
-        <li><a href="#">
-          <i class="fas fa-bell"></i>
-          </a></li> -->
-          <a href="#" class="userName">
-          Ali Iktider Sayam <!-- php theke naam anba ekhane -->
-          </a>
+  <div class="container">
+    <div class="topbar">
+      <span class="left elementAnimLeft">
+        <h1>Profile</h1>
+      </span>
 
-        <li><a href="profile.php">
-          <i class="fas fa-user"></i>
-          </a></li>
-      </ul>
-    </div>
-  </div>
-  
-  <div class="sidebar">
-      <ul>
-        <li><a href="#" onclick="linkClick(books);" class="books">
-          <span class="icon"><i class="fas fa-book"></i></span>
-          <span class="title">Books</span></a></li>
-        <li><a href="#" onclick="linkClick(movies);" class="movies">
-          <span class="icon"><i class="fas fa-file-video"></i></span>
-          <span class="title">Movies</span>
-          </a></li>
-        <li><a href="#" onclick="linkClick(sports);">
-          <span class="icon"><i class="fas fa-volleyball-ball"></i></span>
-          <span class="title">Sports</span>
-          </a></li>
-        <li><a href="#" onclick="linkClick(blogs); ">
-          <span class="icon"><i class="fas fa-blog"></i></span>
-          <span class="title">Blogs</span>
-          </a></li>
-        <li><a href="#" onclick="linkClick(nature);">
-          <span class="icon"><i class="fas fa-leaf"></i></span>
-          <span class="title">Nature</span>
-          </a></li>
-    </ul>
-  </div>
-  
-  <div class="main_container" >
-    <div class="item" id="books">
-     this is books text
-   </div>
-    <div class="item" id="movies">
-      this is movies text
-    </div>
-    <div class="item" id="sports">
-      this is sports text
-    </div>
-    <div class="item" id="blogs">
-      Lthis is item text
-    </div>
-  </div>
+      <span class="mid">
+        <h1> UIU SMART CARD </h1>
+      </span>
+
+      <span class="right">
+        <button class="backBTN elementAnim" onclick="backToDash();">Back To Dash</button>
+      </span>
+
+    </div> <!-- topbar -->
+
+    <div class="lowerbody">
+        <span id="lowerLeft" class="elementAnimLeft">
+          <img src="<?php echo $photo ?>">
+
+          <p> <?php echo $name ?> </p>
+          <?php
+            if ($batch === '') {
+              
+            }else{
+              ?>
+                <p> Batch: <?php echo $batch ?> </p>
+              <?php
+            }
+          ?>
+          
+        </span>
+
+        <span id="lowerRight">
+          <h1 class="elementAnim">Information</h1>
+          <hr>
+
+          <div class="info">
+            <p class="elementAnim"> ID: <?php echo $id ?> </p>
+            <p class="elementAnim"> Department: <?php echo $dept ?> </p>
+            <p class="elementAnim"> RFID Tag: <?php echo $tag ?> </p>
+            <p class="elementAnim"> Email: <?php echo $email ?> </p>
+            <p class="elementAnim"> Phone: <?php echo $phone ?> </p>
+          </div>
+          
+        </span>
+
+    </div> <!-- lowerbody -->
 
 
-
-
-
-</div>
-
+  </div> <!-- container -->
 
 
 <script>
-   function linkClick(id){
-    console.log(id);
+  var role = "<?php echo $role ?>";
+  function backToDash(){
+    
+    if (role == 'student') {
+      window.location.replace('student_dashboard.php');
+    }else{
+      window.location.replace('teacher_dashboard.php');
+    }
 
-    if (id.style.display == 'inline') {
-        id.style.display = 'none';
-       
+  }
+</script>
 
-      }else{
-        id.style.display = 'inline';
-        id.style.width = '50px';
-       
-      }
-   }
-
-  </script>
   
 </body>
 </html>

@@ -77,16 +77,32 @@ body{
   display: flex;
 }
 
-.wrapper .top_navbar .top_menu ul li a{
+/*.wrapper .top_navbar .top_menu ul li a{
   display: block;
   margin: 0 10px;
   width: 35px;
   height: 35px;
   line-height: 35px;
   text-align: center;
-  border: 1px solid #F05E23; /*this is the smart card orange*/
+  border: 1px solid #F05E23; this is the smart card orange
   border-radius: 50%;
-  color: #F05E23; /*right side er choto logo gular color*/
+  color: #F05E23; right side er choto logo gular color
+}*/
+
+.wrapper .top_navbar .top_menu ul li a img{
+  transition-duration: 0.5s;
+  border-radius: 50%;
+ width: 45px;
+ height: auto;
+  border: 2px solid #F05E23;
+  margin-left: 5px;
+
+}
+
+
+.wrapper .top_navbar .top_menu ul li a img:hover{
+  filter: drop-shadow(0px 0px 25px #F05E23);
+    transition-duration: 0.7s;
 }
 
  .userName{
@@ -102,15 +118,15 @@ margin-right: 5px;
    font-weight: 700;
 }
 
-.wrapper .top_navbar .top_menu ul li a:hover{
-  background: var(--orangeGradient); /*choto logor hover*/
+/*.wrapper .top_navbar .top_menu ul li a:hover{
+  background: var(--orangeGradient); choto logor hover
   color: #fff;
 }
 
 .wrapper .top_navbar .top_menu ul li a:hover i{
-  color: white; /*choto logor nijer color*/
+  color: white; choto logor nijer color
 }
-
+*/
 .wrapper .sidebar{
   position: fixed;
   top: 70px;
@@ -206,20 +222,20 @@ margin-right: 5px;
 }
 
 .item h1{
-  color: black;
-  margin-left: 180px;
+  color: red;
+  margin-left: 100px;
   padding-bottom: 20px;
 
 }
 
 table{
- overflow-y:scroll;
-   height:580px;
-   display:block;
-border-radius: 50px;
-background: #ffffff;
-box-shadow: inset 8px 8px 16px #cccccc, 
-            inset -8px -8px 16px #ffffff;
+  overflow-y:scroll;
+  height: 550px;
+  display:block;
+  border-radius: 25px;
+  background: #ffffff;
+  box-shadow: inset 8px 8px 16px #cccccc, 
+              inset -8px -8px 16px #ffffff;
 }
 
 
@@ -230,14 +246,18 @@ table::-webkit-scrollbar {
 th{
   position: sticky;
   top: 0; /* Don't forget this, required for the stickiness */
-  padding: 20px;
+  padding: 15px;
   color: white;
   background: #F05E23;
 }
 
 td{
-  padding: 50px;
+  padding:20px;
   color: black;
+}
+
+tr:hover{
+  background: rgba(0,0,0,.1);
 }
 
 .addBTN{
@@ -255,7 +275,7 @@ td{
     border-image: linear-gradient(to top right, #FFBF00 0%, #F05E23 50%) 1;
     width: 250px;
     height: 70px;
-    margin-left: 900px;
+    margin-left: 800px;
     margin-top: -70px;
     
 }
@@ -269,6 +289,59 @@ td{
     filter: drop-shadow(0px 0px 25px #F05E23);
     transition-duration: 0.7s;
 }
+
+
+.cartBTN{
+     color: white;
+    text-align: center;
+    font-size: 25px;
+    transition-duration: 0.5s;
+    cursor: pointer;
+    background: white;
+    font-weight: 700;
+    color: #F05E23; 
+    border: 3px solid #F05E23;
+    width: 65px;
+    height: 65px;
+    border-radius: 40%;
+    margin-top: -70px;
+    margin-left: 30px;
+
+}
+
+.cartBTN:hover{
+  color: white;
+    border: .1px solid #F05E23;
+    background: #F05E23;
+    border-radius: 0px;
+    filter: drop-shadow(0px 0px 25px #F05E23);
+    transition-duration: 0.5s;
+}
+
+.upQTY{
+  width: 100px;
+    height: 30px;
+    border: none;
+  outline: none;
+  background: none;
+  color: black;
+  font-size: 15px;
+  text-align: center;
+  border-bottom: 2px solid rgb(179, 178, 177);
+  padding-top: -19px;
+  margin-top: -50px;
+  margin-bottom: 5px;
+}
+
+.upQTY:hover{
+   border-bottom: 2px solid rgba(240, 94, 35,1);
+
+}
+
+.upBTN{
+  margin-bottom: -10px;
+}
+
 
 .editBTN{
 
@@ -301,6 +374,11 @@ td{
 }
 
 
+#balance{
+  margin-left: 800px;
+  margin-top: -41px;
+}
+
 
 /*------------------------------Modal Area-----------------------------------------------*/
  .modal {
@@ -315,7 +393,6 @@ td{
   background-color: rgb(0,0,0); 
   background-color: rgba(0,0,0,0.4); /* Opacity here */
 }
-
 
 .modal-content {
   position: relative;
@@ -336,6 +413,148 @@ box-shadow: inset 8px 8px 16px #cccccc,
   animation-duration: 0.4s
 }
 
+#confirmModal .modal-content{
+  width: 50%; 
+}
+
+#finalModal .modal-content{
+  width : 50%;
+}
+
+.modal-body h1{
+  padding: 12px;
+  margin: auto;
+  text-align: center;
+  color: red;
+}
+
+.modal-body h5{
+  font-size: 25px;
+}
+
+#confirmDel,#cancelDel{
+    color: white;
+    text-align: center;
+    font-size: 20px;
+    transition-duration: 0.5s;
+    cursor: pointer;
+    background: white;
+    font-weight: 600;
+    color: #fc7303; 
+    border-width: 1px;
+    border-style: solid;
+    border-image: linear-gradient(to top right, #FFBF00 0%, #F05E23 50%) 1;
+    width: 120px;
+    height: 50px;
+    margin-left: 150px;
+    margin-bottom: 20px;
+
+}
+
+
+
+#confirmDel:hover{
+  transition-duration: 0.5s;
+  color: white;
+    border: .1px solid #F05E23;
+    background: linear-gradient(to top right, #F05E23 0%, #F05E23 50%);
+    border-radius: 0px;
+    filter: drop-shadow(0px 0px 10px #F05E23);
+    transition-duration: 0.5s;
+}
+
+#cancelDel:hover{
+  transition-duration: 0.5s;
+  color: white;
+    border: .1px solid green;
+    background: linear-gradient(to top right, green 0%, green 50%);
+    border-radius: 0px;
+    filter: drop-shadow(0px 0px 10px green);
+    transition-duration: 0.5s;
+}
+
+.inputBox{
+  color: rgb(179, 178, 177);
+  height: 200px;
+  width: 600px;
+  padding-left: 50px;
+  padding-top: 15px;
+  border: 0px solid black;
+  border-radius: 35px;
+  margin: auto;
+  margin-top: 20px;
+  -webkit-box-shadow: -1px 2px 83px -18px rgba(0,0,0,0.75);
+  -moz-box-shadow: -1px 2px 83px -18px rgba(0,0,0,0.75);
+  box-shadow: -1px 2px 83px -18px rgba(0,0,0,0.75);
+}
+
+
+
+.textbox{
+  width: 85%;
+  overflow: hidden;
+  font-size: 20px;
+  padding: 8px 0;
+  margin: 8px 0;
+  border-bottom: 2px solid rgb(179, 178, 177);
+}
+
+.textbox:hover{
+ color: rgba(240, 94, 35,1);
+  border-bottom: 2px solid rgba(240, 94, 35,1);
+}
+
+.textbox i{
+  /*color: rgb(179, 178, 177);*/
+    width: 26px;
+    float: left;
+    text-align: center;
+}
+
+
+.textbox input{
+  border: none;
+  outline: none;
+  background: none;
+  color: black;
+  font-size: 18px;
+  width: 80%;
+  float: left;
+  margin: 0 10px;
+}
+
+.modalAddBTN{
+    color: white;
+    text-align: center;
+    font-size: 25px;
+    transition-duration: 0.5s;
+    cursor: pointer;
+    background: white;
+    font-weight: 600;
+    color: #F05E23; 
+    border-width: 2px;
+    border-style: solid;
+    border-image: linear-gradient(to top right, #FFBF00 0%, #F05E23 50%) 1;
+    width: 150px;
+    height: 50px;
+    margin-left: 520px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+
+}
+
+
+.modalAddBTN:hover{
+  transition-duration: 0.5s;
+  color: white;
+    border: .1px solid #F05E23;
+    background: linear-gradient(to top right, #FFBF00 0%, #F05E23 50%);
+    border-radius: 0px;
+    filter: drop-shadow(0px 0px 10px #F05E23);
+    transition-duration: 0.7s;
+}
+
+
 
 @-webkit-keyframes animatetop {
   from {top:-300px; opacity:0} 
@@ -353,7 +572,7 @@ box-shadow: inset 8px 8px 16px #cccccc,
   float: right;
   font-size: 35px;
   font-weight: bold;
-  filter: drop-shadow(0px 0px 10px #F05E23);
+  
 }
 
 .close:hover,
@@ -361,7 +580,7 @@ box-shadow: inset 8px 8px 16px #cccccc,
   color: #F05E23;
   text-decoration: none;
   cursor: pointer;
-  filter: drop-shadow(0px 0px 10px #F05E23);
+  filter: drop-shadow(0px 0px 10px red);
 }
 
 .modal-header {

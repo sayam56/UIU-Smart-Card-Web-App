@@ -40,11 +40,11 @@ overflow: hidden;
 }
 
 .strtBTN{
-	transition-duration: 0.7s;
+	transition-duration: 0.5s;
 	  color: white;
 	  text-align: center;
 	  font-size: 19px;
-	  transition-duration: 0.7s;
+	  transition-duration: 0.5s;
 	  cursor: pointer;
 	  background: white;
 	  font-weight: 700;
@@ -61,14 +61,40 @@ overflow: hidden;
 }
 
 .strtBTN:hover{
-	transition-duration: 0.7s;
+	transition-duration: 0.5s;
 	color: white;
 	 	border: .1px solid #F05E23;
 	  background: linear-gradient(to top right, #FFBF00 0%, #F05E23 70%);
 	  border-radius: 0px;
 	  filter: drop-shadow(0px 0px 25px #F05E23);
 	}
+.backBTN{
+	  color: white;
+	  text-align: center;
+	  font-size: 19px;
+	  transition-duration: 0.5s;
+	  cursor: pointer;
+	  background: white;
+	  font-weight: 700;
+	  color: #fc7303; 
+	  border-width: 5px;
+	  border-style: solid;
+	  border-image: linear-gradient(to top right, #FFBF00 0%, #F05E23 50%) 1;
+	  
+	  width: 250px;
+	  height: 70px;
+	  margin-left: 570px;
+	  margin-top: 25px;
+}
 
+.backBTN:hover{
+	transition-duration: 0.5s;
+	color: white;
+	 	border: .1px solid #F05E23;
+	  background: linear-gradient(to top right, #FFBF00 0%, #F05E23 70%);
+	  border-radius: 0px;
+	  filter: drop-shadow(0px 0px 25px #F05E23);
+}
 
 
 .tryText p{
@@ -79,6 +105,10 @@ overflow: hidden;
 	margin-top: -300px;
 	letter-spacing: .07rem;
 
+}
+
+.funds{
+	margin-left: 80px;
 }
 
 

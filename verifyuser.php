@@ -58,6 +58,7 @@
             							$_SESSION["s_email"]=$email;
             							$_SESSION["s_tag"]=$key[1];
             							$_SESSION["s_id"]=$key[0];
+            							$_SESSION["role"]=$role;
 		                            header('Location: student_dashboard.php');
 		                            break;
 		                            }
@@ -106,6 +107,8 @@
 							$_SESSION["t_email"]=$email;
 							$_SESSION["t_tag"]=$key[1];
 							$_SESSION["t_id"]=$key[0];
+							$_SESSION["role"]=$role;
+							$_SESSION["t_photo"]=$key[7];
 	                        header('Location: teacher_dashboard.php');
 	                        break;
                         }
@@ -146,6 +149,8 @@
 							$_SESSION["v_uid"]=$email;
 							$_SESSION["v_reader"]=$key[0];
 							$_SESSION["v_id"]=$key[1];
+							$_SESSION["role"]=$role;
+							$_SESSION["photo"]=$key[7];
 	                        header('Location: vendor_dashboard.php');
 	                        break;
                         }

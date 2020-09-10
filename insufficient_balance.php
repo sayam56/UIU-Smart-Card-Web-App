@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="author" content="Ali Iktider Sayam">
+	<meta name="description" content="RFID Based Smart Card System">
+	<meta name="keywords" content="RFID,Smart,Card">
+	<title>UIU Smart Card-Insufficient Funds</title>
+	<link rel="stylesheet" href="bootstrap-4.3.1-dist/css/bootstrap.min.css">
+	<link href="//db.onlinewebfonts.com/c/643e59524d730ce6c6f2384eebf945f8?family=Microsoft+Sans+Serif" rel="stylesheet" type="text/css"/>
+	<link href="css/inc_pass.css" rel="stylesheet">
+	<link rel="icon" href="res/logo.ico">
+
+	<script src="https://kit.fontawesome.com/8b033dbcfa.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+
+
+	<div class="circle">
+		<img src="res/inc_pass/inc_pass.png" class="passImg">
+	</div>
+
+	<div class="tryText funds">
+				<p>Insufficient Funds
+				</p>
+
+	<a href="vendor_dashboard.php"><input type="button" class="backBTN elementAnim" name="strtBTN" value="Go Back"></a>
+	
+		
+
+
+	<script>
+
+		console.log("Designed and Coded By Ali Iktider Sayam");
+	</script>
+
+
+
+<!-- 
+
+
+
+
+********************************************************
+Implemented By Ali Iktider Sayam
+github.com/sayam56
+********************************************************
+
+
+
+ -->
+
+</body>
+</html>
