@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 10, 2020 at 02:21 AM
+-- Generation Time: Sep 14, 2020 at 09:10 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.3
 
@@ -62,7 +62,12 @@ INSERT INTO `attendance` (`sec_name`, `t_id`, `s_id`, `date`, `time`) VALUES
 ('CSI 415 D', 'F01192137', 11163071, '2020-05-10', '2020-05-26 09:43:31'),
 ('CSI 415 D', 'F01192137', 11163071, '2020-05-13', '2020-05-26 09:43:31'),
 ('CSI 321 A', 'F01172096', 11163071, '2020-05-28', '2020-05-27 12:56:34'),
-('CSI 321 A', 'F01172096', 11163071, '2020-05-28', '2020-05-27 12:56:36');
+('CSI 321 A', 'F01172096', 11163071, '2020-05-28', '2020-05-27 12:56:36'),
+('CSI 321 A', 'F01172096', 11163071, '2020-05-03', '2020-09-14 06:47:01'),
+('CSI 321 A', 'F01172096', 11172070, '2020-05-03', '2020-09-14 07:01:39'),
+('CSI 321 A', 'F01172096', 11172070, '2020-05-06', '2020-09-14 07:05:39'),
+('CSI 321 A', 'F01172096', 11163075, '2020-05-03', '2020-09-14 07:03:42'),
+('CSI 321 A', 'F01172096', 11163075, '2020-05-06', '2020-09-14 07:03:42');
 
 -- --------------------------------------------------------
 
@@ -219,7 +224,26 @@ INSERT INTO `classdate` (`sec_name`, `date`, `class_type`) VALUES
 ('CSI 341 B', '2020-09-20', 'regular'),
 ('CSI 341 B', '2020-09-23', 'regular'),
 ('CSI 341 B', '2020-09-27', 'regular'),
-('CSI 341 B', '2020-09-28', 'make up');
+('CSI 341 B', '2020-09-28', 'make up'),
+('CSI 321 A', '2020-09-14', 'extra'),
+('CSI 321 A', '2020-09-15', 'extra'),
+('CSI 321 A', '2020-09-16', 'extra'),
+('CSI 321 A', '2020-09-17', 'extra'),
+('CSI 311 B', '2020-09-14', 'regular'),
+('CSI 311 B', '2020-09-15', 'regular'),
+('CSI 311 B', '2020-09-16', 'regular'),
+('CSI 311 B', '2020-09-17', 'regular'),
+('CSI 311 B', '2020-09-18', 'make up'),
+('CSI 311 B', '2020-09-19', 'regular'),
+('CSI 311 B', '2020-09-20', 'regular'),
+('CSI 311 B', '2020-09-21', 'make up'),
+('CSI 311 B', '2020-09-23', 'regular'),
+('CSI 311 B', '2020-09-24', 'regular'),
+('CSI 312 C', '2020-09-25', 'regular'),
+('CSI 312 C', '2020-09-26', 'regular'),
+('CSI 312 C', '2020-09-27', 'regular'),
+('CSI 312 C', '2020-09-28', 'regular'),
+('CSI 312 C', '2020-09-29', 'regular');
 
 -- --------------------------------------------------------
 
@@ -238,6 +262,8 @@ CREATE TABLE `course` (
 
 INSERT INTO `course` (`c_code`, `c_name`) VALUES
 ('CSE 465', 'Web Programming'),
+('CSI 311', 'System Analysis and Design '),
+('CSI 312', 'System Analysis and Design Laboratory'),
 ('CSI 321', 'Software Engineering'),
 ('CSI 322', 'Software Engineering Laboratory'),
 ('CSI 341', 'Artificial Intelligence'),
@@ -274,16 +300,15 @@ INSERT INTO `item_list` (`item_id`, `item_name`, `unit_price`, `vendor_id`, `ite
 (4, 'pizza', 40, 2, 10),
 (5, 'Pasta', 230, 1, 1230),
 (6, 'Chowmein', 170, 1, 130),
-(7, 'Apple Juice', 70, 1, 90),
+(7, 'Apple Juice', 70, 1, 87),
 (8, 'Mango Juice', 50, 1, 70),
-(9, 'Jira Pani', 50, 1, 55),
-(10, 'Green Tea', 10, 1, 1000),
-(11, 'Biriyani', 180, 1, 50),
-(12, 'Chicken Fry', 50, 1, 50),
+(10, 'Green Tea', 10, 1, 996),
+(11, 'Biriyani', 180, 1, 46),
+(12, 'Chicken Fry', 50, 1, 49),
 (13, 'Crispy Chicken', 50, 1, 100),
-(17, 'Dal', 15, 1, 49),
-(20, 'Alu Bhaji', 50, 1, 90),
-(21, 'Velpuri', 6, 1, 92);
+(17, 'Dal', 15, 1, 48),
+(20, 'Alu Bhaji', 50, 1, 94),
+(21, 'Velpuri', 6, 1, 84);
 
 -- --------------------------------------------------------
 
@@ -299,13 +324,6 @@ CREATE TABLE `payment_state` (
   `r_tag` varchar(100) NOT NULL,
   `payment_state` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `payment_state`
---
-
-INSERT INTO `payment_state` (`payment_id`, `vendor_id`, `total_price`, `token`, `r_tag`, `payment_state`) VALUES
-(274, 1, 60, 'f54ed14c9575bb95951697fb574af2', '09eace7e', 'complete');
 
 -- --------------------------------------------------------
 
@@ -359,18 +377,22 @@ CREATE TABLE `section` (
 --
 
 INSERT INTO `section` (`c_code`, `t_id`, `sec_name`, `sec_start_time`, `sec_end_time`, `sec_room_number`, `sec_rfid_reader`, `sec_trimester`) VALUES
-('CSE 465', 'F01172096', 'CSE 465 A', '11:00:00', '01:30:00', 410, '235r', '201'),
-('CSI 321', 'F01172096', 'CSI 321 A', '12:00:00', '13:40:00', 375, '375r', '201'),
-('CSI 322', 'F01172096', 'CSI 322 C', '15:44:00', '18:44:00', 210, '210r', '201'),
-('CSI 341', 'F01192137', 'CSI 341 B', '01:30:00', '03:00:00', 325, '255r', '201'),
-('CSI 342', 'F01192137', 'CSI 342 B', '11:00:00', '01:30:00', 510, '225r', '201'),
-('CSI 411', 'F01172096', 'CSI 411 B', '10:00:00', '11:30:00', 306, '155r', '201'),
-('CSI 415', 'F01192137', 'CSI 415 D', '08:45:03', '09:45:03', 312, '312r', '201'),
-('CSI 423', 'F01192137', 'CSI 423 B', '14:00:00', '15:30:00', 332, '332r', '201'),
-('CSI 424', 'F01192137', 'CSI 424 B', '09:00:00', '11:30:00', 508, '508r', '201'),
-('MATH 003', 'F01192137', 'MATH 003 A', '25:35:58', '36:35:58', 207, '207r', '201'),
-('Math 201', 'F01172096', 'MATH 201 B', '18:47:31', '20:47:31', 310, '310r', '201'),
-('MATH 205', 'F01192137', 'MATH 205 A', '14:52:11', '17:52:11', 212, '212r', '201');
+('CSE 465', 'F01172096', 'CSE 465 A', '11:00:00', '01:30:00', 410, '235r', '202'),
+('CSI-233', 'F01172096', 'CSI 233 A', '46:10:16', '60:10:16', 403, '403r', '202'),
+('CSI 311', 'F01192138', 'CSI 311 B', '01:00:00', '23:00:00', 330, '330r', '202'),
+('CSI 312', 'F01192138', 'CSI 312 C', '14:00:00', '16:30:00', 506, '506r', '202'),
+('CSI 321', 'F01172096', 'CSI 321 A', '12:00:00', '13:40:00', 375, '375r', '202'),
+('CSI 322', 'F01172096', 'CSI 322 C', '15:44:00', '18:44:00', 210, '210r', '202'),
+('CSI 341', 'F01192137', 'CSI 341 B', '01:30:00', '03:00:00', 325, '255r', '202'),
+('CSI 342', 'F01192137', 'CSI 342 B', '11:00:00', '01:30:00', 510, '225r', '202'),
+('CSI 411', 'F01172096', 'CSI 411 B', '10:00:00', '11:30:00', 306, '155r', '202'),
+('CSI 415', 'F01192137', 'CSI 415 D', '08:45:03', '09:45:03', 312, '312r', '202'),
+('CSI 423', 'F01192137', 'CSI 423 B', '14:00:00', '15:30:00', 332, '332r', '202'),
+('CSI 424', 'F01192137', 'CSI 424 B', '09:00:00', '11:30:00', 508, '508r', '202'),
+('MATH 003', 'F01192137', 'MATH 003 A', '25:35:58', '36:35:58', 207, '207r', '202'),
+('Math 201', 'F01172096', 'MATH 201 B', '18:47:31', '20:47:31', 310, '310r', '202'),
+('MATH 205', 'F01192137', 'MATH 205 A', '14:52:11', '17:52:11', 212, '212r', '202'),
+('MATH 205', 'F01172096', 'MATH 205 B', '14:07:28', '16:02:28', 325, '325r', '202');
 
 -- --------------------------------------------------------
 
@@ -431,7 +453,14 @@ INSERT INTO `studentjcourse` (`s_id`, `c_code`) VALUES
 (11172070, 'CSI 342'),
 (11171327, 'CSI 423'),
 (11171327, 'CSI 424'),
-(11171327, 'CSE 465');
+(11171327, 'CSE 465'),
+(11163071, 'CSI 311'),
+(11172070, 'CSI 311'),
+(11171327, 'CSI 311'),
+(11172070, 'CSI 312'),
+(11163071, 'CSI 312'),
+(11163075, 'CSI 321'),
+(11172070, 'CSI 321');
 
 -- --------------------------------------------------------
 
@@ -461,7 +490,14 @@ INSERT INTO `studentjsection` (`s_id`, `c_code`, `sec_name`) VALUES
 (11172070, 'CSI 411', 'CSI 411 B'),
 (11171327, 'CSE 465', 'CSE 465 A'),
 (11171327, 'CSI 423', 'CSI 423 B'),
-(11171327, 'CSI 424', 'CSI 424 B');
+(11171327, 'CSI 424', 'CSI 424 B'),
+(11163071, 'CSI 311', 'CSI 311 B'),
+(11163071, 'CSI 312', 'CSI 312 C'),
+(11172070, 'CSI 311', 'CSI 311 B'),
+(11172070, 'CSI 312', 'CSI 312 C'),
+(11171327, 'CSI 311', 'CSI 311 B'),
+(11163075, 'CSI 321', 'CSI 321 A'),
+(11172070, 'CSI 321', 'CSI 321 A');
 
 -- --------------------------------------------------------
 
@@ -485,8 +521,8 @@ CREATE TABLE `teacher` (
 --
 
 INSERT INTO `teacher` (`t_id`, `t_tag`, `t_name`, `t_email`, `t_password`, `t_department`, `t_phone`, `t_photo`) VALUES
-('F01172096', '9AF92F16', 'Imam hossain', 'imam@cse.uiu.ac.bd', '1234', 'CSE', 1922181860, NULL),
-('F01192137', '97C9567B', 'Mirajul Islam', 'miraj@cse.uiu.ac.bd', '1234', 'CSE', 1756013171, NULL),
+('F01172096', '9AF92F16', 'Imam Hossain', 'imam@cse.uiu.ac.bd', '1234', 'CSE', 1922181860, 'res/userProfile/imam.jpg'),
+('F01192137', '97C9567B', 'Mirajul Islam', 'miraj@cse.uiu.ac.bd', '1234', 'CSE', 1756013171, 'res/userProfile/mirajul.jpg'),
 ('F01192138', '09EACE7E', 'Dr. Suman Ahmmed', 'suman@cse.uiu.ac.bd', '1234', 'CSE', 1765049901, 'res/userProfile/suman.jpg');
 
 -- --------------------------------------------------------
@@ -512,7 +548,10 @@ INSERT INTO `teacherjcourse` (`t_id`, `c_code`) VALUES
 ('F01192137', 'CSI 416'),
 ('F01172096', 'Math 201'),
 ('F01192137', 'MATH 003'),
-('F01192137', 'MATH 205');
+('F01192137', 'MATH 205'),
+('F01172096', 'MATH 205'),
+('F01192138', 'CSI 311'),
+('F01192138', 'CSI 312');
 
 -- --------------------------------------------------------
 
@@ -530,13 +569,6 @@ CREATE TABLE `temp_transaction` (
   `sale_qty` int(100) NOT NULL,
   `token` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `temp_transaction`
---
-
-INSERT INTO `temp_transaction` (`id`, `vendor_id`, `item_id`, `item_name`, `item_unit_price`, `available_qty`, `sale_qty`, `token`) VALUES
-(422, 1, 17, 'Dal', 15, 49, 4, 'f54ed14c9575bb95951697fb574af2');
 
 -- --------------------------------------------------------
 
@@ -557,14 +589,19 @@ CREATE TABLE `transaction` (
 --
 
 INSERT INTO `transaction` (`tr_id`, `r_tag`, `tr_amount`, `tr_type`, `vendor_id`) VALUES
+('009f2a311d7d901c68feef52dfa304', '9af92f16', 680, 'payment', 1),
 ('0ae056d0e8d006453307a4d0f45852', 'b7ed4c19', 63, 'payment', 1),
 ('1b2aac7a9dda9df178029f41b40490', '09eace7e', 150, 'payment', 1),
 ('1c7c51f3354bb3ee2769f47dbbab6d', 'b7ed4c19', 350, 'payment', 1),
 ('248e52a3ef7feb6a4f5711b7eb80c3', 'b7ed4c19', 350, 'payment', 1),
 ('2ed94673a11b8ac2f3744eebb67ac1', 'b7ed4c19', 170, 'payment', 1),
+('34488af66ea39241c7f9b0623ad625', '09eace7e', 600, 'payment', 1),
 ('53866db03f28d18b8887b17bb8b417', '09eace7e', 100, 'payment', 1),
 ('6107a78846fd7a91c7bab6f9c50bcf', 'b7ed4c19', 850, 'payment', 1),
-('ad7d8a8b08926a6bf3f12e85b5d849', '09eace7e', 600, 'payment', 1);
+('65f7cc31814cb383984589c406e7d4', '0eef3a1a', 78, 'payment', 1),
+('8bf2db3046d8364a73c92ea66ca12e', '0eef3a1a', 15, 'payment', 1),
+('ad7d8a8b08926a6bf3f12e85b5d849', '09eace7e', 600, 'payment', 1),
+('c6d4b64839d93b90688606c6a2ceca', '0eef3a1a', 10, 'payment', 1);
 
 -- --------------------------------------------------------
 
@@ -607,11 +644,13 @@ CREATE TABLE `wallet` (
 --
 
 INSERT INTO `wallet` (`w_balance`, `r_tag`) VALUES
-(103553.0000, 'B8ED5C10'),
+(104936.0000, 'B8ED5C10'),
 (60000.0000, 'B8ED5C14'),
-(200.0000, '0EEF3A1A'),
+(97.0000, '0EEF3A1A'),
 (177.0000, 'B7ED4C19'),
-(40.0000, '09EACE7E');
+(4400.0000, '09EACE7E'),
+(3820.0000, '9AF92F16'),
+(6500.0000, '97C9567B');
 
 --
 -- Indexes for dumped tables
@@ -736,7 +775,7 @@ ALTER TABLE `item_list`
 -- AUTO_INCREMENT for table `payment_state`
 --
 ALTER TABLE `payment_state`
-  MODIFY `payment_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=275;
+  MODIFY `payment_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=282;
 
 --
 -- AUTO_INCREMENT for table `student`
@@ -748,7 +787,7 @@ ALTER TABLE `student`
 -- AUTO_INCREMENT for table `temp_transaction`
 --
 ALTER TABLE `temp_transaction`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=423;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=438;
 
 --
 -- AUTO_INCREMENT for table `vendor`

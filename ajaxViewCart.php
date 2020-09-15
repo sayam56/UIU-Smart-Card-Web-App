@@ -39,8 +39,8 @@
                     <th width="16%">Item Name</th>
                     <th width="18%">Unit Price</th>
                     <th width="16%">Quantity</th>
-                    <th width="16%">SALE QTY</th>
-                    <th width="16%">SUM</th>
+                    <th width="16%">Sale Qty</th>
+                    <th width="16%">Sum</th>
                   </tr>
                   
                 </thead>

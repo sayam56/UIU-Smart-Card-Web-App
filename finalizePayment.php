@@ -208,7 +208,7 @@ try {
 }
 
 
-/*header("Location: vendor_dashboard.php");*/
+header("Location: vendor_dashboard.php");
 
 
 }/*state if*/
