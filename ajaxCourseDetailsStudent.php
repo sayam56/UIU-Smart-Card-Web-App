@@ -25,6 +25,9 @@ date_default_timezone_set('Asia/Dhaka');
   $count2=1;
   $count=1;
 
+  $prsntCount=0;
+  $absCount=0;
+
   try{
     	$sql = "SELECT * FROM `classdate` WHERE sec_name='".$section."' and date<='".$date."' "  ;
         $obj = $conn->query($sql);
@@ -32,7 +35,12 @@ date_default_timezone_set('Asia/Dhaka');
 
 
         ?>
-        <div id="catalog"> <h1><?php echo $section ?>: <?php echo $course ?> </h1> </div>
+        <div id="catalog">
+
+         <h1><?php echo $section ?>: <?php echo $course ?> </h1> 
+        <!--  <h1>P:</h1> -->
+
+       </div>
         
         <table class="table" style="width: 80%; margin: auto; height: 480px; margin-bottom: 50px;">
                 <thead class="thead-dark" style="text-align: center;">
@@ -70,7 +78,7 @@ date_default_timezone_set('Asia/Dhaka');
          }else{
         foreach ($row as $key) {
           ?>
-          <tr style="text-align:center; font-size: 20px; color: black;" id="">
+          <tr style="text-align:center; font-size: 20px;" id="">
 
             <td width="2%"><?php echo $count2 ?></td> 
 
@@ -78,8 +86,6 @@ date_default_timezone_set('Asia/Dhaka');
 
             <td width="18%"><?php echo $key[2] ?> </td> 
 
-
-            <td width="16%">
             
                <?php
                 try {
@@ -87,9 +93,11 @@ date_default_timezone_set('Asia/Dhaka');
                       $objl = $conn->query($sqll);
                       
                       if ($objl ->rowCount() != 0) {
-                        echo "Present";
+                        echo "<td width='16%' style='color: green; font-weight: 700; '> Present </td>";
+                        $prsntCount++;
                       }else{
-                        echo "Absent";
+                        echo "<td width='16%' style='color: red; font-weight: 700;'> Absent </td>";
+                        $absCount++;
                       }
                 } catch (PDOException $es) {
                   echo $es;
@@ -97,7 +105,6 @@ date_default_timezone_set('Asia/Dhaka');
 
                ?>
 
-            </td> <!-- sale qty -->
 
 
        </tr>
@@ -115,7 +122,9 @@ date_default_timezone_set('Asia/Dhaka');
               
 
               </table>
-          <div id="catalog"> <h1 style="color: green;"> Upcoming Classes </h1> </div>
+          <div id="catalog" style="margin-top: -50px; text-align: center;"> 
+            <h1 style="display: inline-block; color: green;">Present Count: <?php echo $prsntCount?> </h1> <h1 style="display: inline-block; color: red;"> Absent Count: <?php echo $absCount ?> </h1>
+            <h1 style="color: green;"> Upcoming Classes </h1> </div>
            
               <?php
       }/*else ends*/
