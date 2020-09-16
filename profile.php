@@ -42,26 +42,27 @@
   if ($role == 'student') {
 
     //write the things here
-/*    
+    
     try{
-            $sqlquery="SELECT * from vendor where vendor_id= '".$id."'  ";
+            $sqlquery="SELECT * from student where s_id= '".$id."'  ";
             $object= $conn->query($sqlquery);
             $row1= $object->fetchAll();
 
             foreach ($row1 as $key) {
-              $_SESSION["v_name"]= $key[2];
-              $_SESSION["v_uid"]=$email;
-              $_SESSION["v_reader"]=$key[0];
-              $_SESSION["v_id"]=$key[1];
-              $_SESSION["role"]=$role;
-                          header('Location: vendor_dashboard.php');
+                        $name= $key[2];
+                        $photo= $key[8];
+                        $tag= $key[1];
+                        $email= $key[3];
+                        $phone= $key[7];
+                        $dept= $key[5];
+                        $batch = $key[6];
                           break;
                         }        
                 }
 
                 catch(PDOException $e){
-                    echo "<script>window.alert('validaiton error');</script>";
-                }*/
+                    echo $e;
+                }
 
 
   }else{

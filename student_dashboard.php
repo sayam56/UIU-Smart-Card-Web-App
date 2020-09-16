@@ -6,7 +6,7 @@
   <meta name="author" content="Ali Iktider Sayam">
   <meta name="description" content="RFID Based Smart Card System">
   <meta name="keywords" content="RFID,Smart,Card">
-  <title>UIU Smart Card-Teacher</title>
+  <title>UIU Smart Card-Student</title>
 
   <link rel="stylesheet" href="css/dashboard.css">
   <link rel="icon" href="res/logo.ico">
@@ -62,6 +62,10 @@
   $s_id=$_SESSION["s_id"];
   $role=$_SESSION["role"];
   $s_photo=$_SESSION["s_photo"];
+
+
+  $_SESSION["role"]=$role;
+   $_SESSION["id"]=$s_id;
 
 
 
@@ -137,7 +141,7 @@
 
         try{
 
-          $query = "SELECT c_code FROM teacherjcourse WHERE t_id='$t_id' ";
+          $query = "SELECT c_code FROM studentjcourse WHERE s_id='$s_id' ";
           $cobj = $conn->query($query);
 
           if ($cobj->rowCount() == 0) {
@@ -154,7 +158,7 @@
 
           foreach ($ctable as $c_code) {
 
-          $sec_nameqry = "SELECT sec_name FROM section WHERE c_code='".$c_code[0]."' AND t_id='$t_id' ";
+          $sec_nameqry = "SELECT sec_name FROM studentjsection WHERE c_code='".$c_code[0]."' AND s_id='$s_id' ";
           $sec_nameobj = $conn->query($sec_nameqry);
           $sec_nametab = $sec_nameobj->fetchAll();
 
@@ -201,13 +205,7 @@
 
       ?>
 
-
-     
-          
-      
-            
-           
-         
+       
 
       </div><!-- courses end -->
 
@@ -221,7 +219,7 @@
       <h1>Transactions</h1>
       <?php
       try{
-        $balanceSQL= "SELECT w_balance FROM wallet WHERE r_tag='$t_tag' ";
+        $balanceSQL= "SELECT w_balance FROM wallet WHERE r_tag='$s_tag' ";
         $balanceOBJ= $conn->query($balanceSQL);
         $balanceTable = $balanceOBJ->fetchAll();
 
@@ -259,7 +257,7 @@
                   <?php
 
                   $count = 1;
-                  $sqll= "SELECT * FROM transaction where r_tag= '".$t_tag."'";
+                  $sqll= "SELECT * FROM transaction where r_tag= '".$s_tag."'";
                   $objj = $conn->query($sqll);
 
                   if ($objj -> rowCount() == 0) {
@@ -337,11 +335,100 @@
 
 
 
+<div id="detailsModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div id="animation" >
+    <div class="modal-header">
+      <span class="close detailsClose">&times;</span>
+      
+    </div>
+    <div class="modal-body">
+      
+     <div id="courseDetailsModal">
+       
+     </div>
+
+    </div> <!-- modal body ends -->
+    <div class="modal-footer">
+
+      
+       </div><!-- animation -->
+    </div>
+  </div>
+
+</div> <!-- detailsModal ends -->
+
+
+
+
+
+
+
 <!-- modal ends -->
 
 
 
 <script>
+    var s_id = "<?php echo $s_id ?>" ;
+
+function courseDetails(sec_name, c_name){
+
+     // Get the modal
+var modal1 = document.getElementById("detailsModal");
+
+// Get the button that opens the modal
+var btn1 = document.getElementById("detailsBTN_"+sec_name);
+
+/*console.log(btn1);*/
+
+// Get the <span> element that closes the modal
+var span1 = document.getElementsByClassName("detailsClose")[0];
+
+// When the user clicks the button, open the modal 
+
+  modal1.style.display = "block";
+
+
+// When the user clicks on <span> (x), close the modal
+span1.onclick = function() {
+  modal1.style.display = "none";
+  
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal1) {
+    modal1.style.display = "none";
+  }
+}
+
+
+  var ajaxreq=new XMLHttpRequest();
+  ajaxreq.open("GET","ajaxCourseDetailsStudent.php?&sec_name="+sec_name+'&c_name='+c_name+'&s_id='+s_id); 
+
+
+  ajaxreq.onreadystatechange=function ()
+  {
+   if(ajaxreq.readyState==4 && ajaxreq.status==200)
+          {
+               var response=ajaxreq.responseText;
+              
+               var divelm=document.getElementById('courseDetailsModal');
+              
+              
+               divelm.innerHTML=response;
+               
+          }
+  }
+  
+  ajaxreq.send();
+
+  } /*course details ends*/
+
+
+
 
 
 
