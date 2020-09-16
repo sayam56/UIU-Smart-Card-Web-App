@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 16, 2020 at 03:15 AM
+-- Generation Time: Sep 17, 2020 at 01:41 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.3
 
@@ -86,9 +86,11 @@ INSERT INTO `attendance` (`sec_name`, `t_id`, `s_id`, `date`, `time`) VALUES
 ('CSI 311 B', 'F01192138', 11163075, '2020-09-15', '2020-09-15 19:11:55'),
 ('CSI 311 B', 'F01192138', 11162009, '2020-09-15', '2020-09-15 19:11:55'),
 ('CSI 311 B', 'F01192138', 11163071, '2020-09-14', '2020-09-15 19:13:09'),
-('CSI 311 B', 'F01192138', 11172070, '2020-09-16', '2020-09-16 01:07:53'),
-('CSI 311 B', 'F01192138', 11171327, '2020-09-16', '2020-09-16 01:08:51'),
-('CSI 311 B', 'F01192138', 11163071, '2020-09-16', '2020-09-16 01:10:47');
+('CSI 311 B', 'F01192138', 11171327, '2020-09-14', '2020-09-16 19:45:54'),
+('CSI 311 B', 'F01192138', 11163071, '2020-09-16', '2020-09-16 21:45:07'),
+('CSI 311 B', 'F01192138', 11163075, '2020-09-17', '2020-09-16 21:45:16'),
+('CSI 311 B', 'F01192138', 11171327, '2020-09-16', '2020-09-16 21:45:31'),
+('CSI 311 B', 'F01192138', 11162009, '2020-09-17', '2020-09-16 21:45:43');
 
 -- --------------------------------------------------------
 
@@ -103,6 +105,15 @@ CREATE TABLE `attendance_state` (
   `date` date NOT NULL,
   `state` varchar(100) CHARACTER SET latin1 NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `attendance_state`
+--
+
+INSERT INTO `attendance_state` (`attStateID`, `t_id`, `sec_name`, `date`, `state`) VALUES
+(119, 'F01192138', 'CSI 311 B', '2020-09-17', 'true'),
+(120, 'F01192138', 'CSI 227 C', '2020-09-17', 'true'),
+(121, 'F01192138', 'CSI 227 C', '2020-09-17', 'true');
 
 -- --------------------------------------------------------
 
@@ -460,22 +471,21 @@ CREATE TABLE `student` (
   `s_department` varchar(100) NOT NULL,
   `s_batch` int(50) NOT NULL,
   `s_phone` int(50) NOT NULL,
-  `s_photo` varchar(200) DEFAULT NULL,
-  `Registered` varchar(100) NOT NULL DEFAULT 'NO'
+  `s_photo` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `student`
 --
 
-INSERT INTO `student` (`s_id`, `s_tag`, `s_name`, `s_email`, `s_password`, `s_department`, `s_batch`, `s_phone`, `s_photo`, `Registered`) VALUES
-(11162009, 'B8ED5C19', 'Arafat Hossain Kishor', 'ahkishor93.ahk@gmail.com', '1234', 'CSE', 162, 1635662133, NULL, 'NO'),
-(11163071, 'B7ED4C19', 'ALI IKTIDER SAYAM', 'asayam163071@bscse.uiu.ac.bd', '1234', 'CSE', 163, 1721716139, NULL, 'NO'),
-(11163075, 'B7ED4C29', 'Kazi Muhibul Alam', 'anik06081995@gmail.com', '1234', 'CSE', 163, 1756013171, NULL, 'NO'),
-(11163078, '0EEF4A12', 'Fatema Binte Iqbal', 'fiqbal163078@bscse.uiu.ac.bd', '1234', 'CSE', 163, 1831461981, NULL, 'NO'),
-(11171327, 'BB09101C', 'FARZANA SULTANA SOHA', 'fsulatana@gmail.com', '1234', 'CSE', 171, 1777660829, NULL, 'NO'),
-(11172070, '0EEF3A1A', 'MD. AKIB AL JAWAD ARNOB', 'akibaljawadarnob@gmail.com', '1234', 'CSE', 172, 1521418857, NULL, 'NO'),
-(11172085, 'D7FG7C38', 'taskia taher', 'toyshi172085@bscse.uiu.ac.bd', '1234', 'CSE', 172, 1710203047, NULL, 'NO');
+INSERT INTO `student` (`s_id`, `s_tag`, `s_name`, `s_email`, `s_password`, `s_department`, `s_batch`, `s_phone`, `s_photo`) VALUES
+(11162009, 'B8ED5C19', 'Arafat Hossain Kishor', 'ahkishor93.ahk@gmail.com', '1234', 'CSE', 162, 1635662133, 'res/userProfile/kishor.jpg'),
+(11163071, 'B7ED4C19', 'Ali Iktider Sayam', 'asayam163071@bscse.uiu.ac.bd', '1234', 'CSE', 163, 1721716139, 'res/userProfile/sayam.jpg'),
+(11163075, 'B7ED4C29', 'Kazi Muhibul Alam', 'anik06081995@gmail.com', '1234', 'CSE', 163, 1756013171, 'res/userProfile/anik.jpg'),
+(11163078, '0EEF4A12', 'Fatema Binte Iqbal', 'fiqbal163078@bscse.uiu.ac.bd', '1234', 'CSE', 163, 1831461981, NULL),
+(11171327, 'BB09101C', 'FARZANA SULTANA SOHA', 'fsulatana@gmail.com', '1234', 'CSE', 171, 1777660829, 'res/userProfile/soha.jpg'),
+(11172070, '0EEF3A1A', 'Md. Akib Al Jawad Arnob', 'akibaljawadarnob@gmail.com', '1234', 'CSE', 172, 1521418857, 'res/userProfile/arnob.jpg'),
+(11172085, 'D7FG7C38', 'taskia taher', 'toyshi172085@bscse.uiu.ac.bd', '1234', 'CSE', 172, 1710203047, NULL);
 
 -- --------------------------------------------------------
 
@@ -648,7 +658,9 @@ INSERT INTO `temp_transaction` (`id`, `vendor_id`, `item_id`, `item_name`, `item
 (440, 1, 7, 'Apple Juice', 70, 87, 1, 'ea89fbd7e9b3e4dba3e38880805d27'),
 (441, 1, 20, 'Alu Bhaji', 50, 94, 1, '09ed48b7ecb9b9c453de80c5fd57cc'),
 (442, 1, 7, 'Apple Juice', 70, 87, 0, '09ed48b7ecb9b9c453de80c5fd57cc'),
-(443, 1, 20, 'Alu Bhaji', 50, 94, 0, '0dd5d70c463164949095e591c710d0');
+(443, 1, 20, 'Alu Bhaji', 50, 94, 0, '0dd5d70c463164949095e591c710d0'),
+(444, 1, 20, 'Alu Bhaji', 50, 94, 1, '6cfed98263812398ad0ef4838de335'),
+(445, 1, 7, 'Apple Juice', 70, 87, 1, '6cfed98263812398ad0ef4838de335');
 
 -- --------------------------------------------------------
 
@@ -863,7 +875,7 @@ ALTER TABLE `wallet`
 -- AUTO_INCREMENT for table `attendance_state`
 --
 ALTER TABLE `attendance_state`
-  MODIFY `attStateID` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=119;
+  MODIFY `attStateID` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=122;
 
 --
 -- AUTO_INCREMENT for table `item_list`
@@ -887,7 +899,7 @@ ALTER TABLE `student`
 -- AUTO_INCREMENT for table `temp_transaction`
 --
 ALTER TABLE `temp_transaction`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=444;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=446;
 
 --
 -- AUTO_INCREMENT for table `vendor`
