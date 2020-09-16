@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 14, 2020 at 09:10 PM
+-- Generation Time: Sep 16, 2020 at 03:15 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.3
 
@@ -33,7 +33,7 @@ CREATE TABLE `attendance` (
   `t_id` varchar(100) NOT NULL,
   `s_id` int(100) NOT NULL,
   `date` date DEFAULT NULL,
-  `time` timestamp NULL DEFAULT NULL
+  `time` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -45,8 +45,6 @@ INSERT INTO `attendance` (`sec_name`, `t_id`, `s_id`, `date`, `time`) VALUES
 ('MATH 003 A', 'F01192137', 11163071, '2020-05-05', '2020-05-26 09:36:29'),
 ('MATH 003 A', 'F01192137', 11163071, '2020-05-09', '2020-05-26 09:36:29'),
 ('MATH 003 A', 'F01192137', 11163071, '2020-05-12', '2020-05-26 09:36:29'),
-('CSI 321 A', 'F01172096', 11163071, '2020-05-03', '2020-05-26 09:38:37'),
-('CSI 321 A', 'F01172096', 11163071, '2020-05-06', '2020-05-26 09:38:37'),
 ('CSI 321 A', 'F01172096', 11163071, '2020-05-10', '2020-05-26 09:38:37'),
 ('CSI 321 A', 'F01172096', 11163071, '2020-05-13', '2020-05-26 09:38:37'),
 ('CSI 321 A', 'F01172096', 11163071, '2020-05-17', '2020-05-26 09:38:37'),
@@ -63,11 +61,48 @@ INSERT INTO `attendance` (`sec_name`, `t_id`, `s_id`, `date`, `time`) VALUES
 ('CSI 415 D', 'F01192137', 11163071, '2020-05-13', '2020-05-26 09:43:31'),
 ('CSI 321 A', 'F01172096', 11163071, '2020-05-28', '2020-05-27 12:56:34'),
 ('CSI 321 A', 'F01172096', 11163071, '2020-05-28', '2020-05-27 12:56:36'),
-('CSI 321 A', 'F01172096', 11163071, '2020-05-03', '2020-09-14 06:47:01'),
-('CSI 321 A', 'F01172096', 11172070, '2020-05-03', '2020-09-14 07:01:39'),
 ('CSI 321 A', 'F01172096', 11172070, '2020-05-06', '2020-09-14 07:05:39'),
 ('CSI 321 A', 'F01172096', 11163075, '2020-05-03', '2020-09-14 07:03:42'),
-('CSI 321 A', 'F01172096', 11163075, '2020-05-06', '2020-09-14 07:03:42');
+('CSI 321 A', 'F01172096', 11163075, '2020-05-06', '2020-09-14 07:03:42'),
+('CSI 321 A', 'F01172096', 11163071, '2020-05-03', '2020-09-14 22:27:34'),
+('CSI 321 A', 'F01172096', 11172070, '2020-05-03', '2020-09-14 22:40:57'),
+('CSI 321 A', 'F01172096', 11163071, '2020-05-06', '2020-09-14 22:42:21'),
+('CSI 227 C', 'F01192138', 11172070, '2020-09-14', '2020-09-15 19:06:08'),
+('CSI 227 C', 'F01192138', 11163078, '2020-09-14', '2020-09-15 19:06:08'),
+('CSI 227 C', 'F01192138', 11163071, '2020-09-14', '2020-09-15 19:06:08'),
+('CSI 227 C', 'F01192138', 11163075, '2020-09-14', '2020-09-15 19:06:08'),
+('CSI 227 C', 'F01192138', 11162009, '2020-09-14', '2020-09-15 19:06:08'),
+('CSI 227 C', 'F01192138', 11171327, '2020-09-14', '2020-09-15 19:06:08'),
+('CSI 227 C', 'F01192138', 11172070, '2020-09-15', '2020-09-15 19:06:08'),
+('CSI 227 C', 'F01192138', 11163078, '2020-09-15', '2020-09-15 19:06:08'),
+('CSI 227 C', 'F01192138', 11163071, '2020-09-15', '2020-09-15 19:06:08'),
+('CSI 227 C', 'F01192138', 11163075, '2020-09-15', '2020-09-15 19:06:08'),
+('CSI 227 C', 'F01192138', 11162009, '2020-09-15', '2020-09-15 19:06:08'),
+('CSI 227 C', 'F01192138', 11171327, '2020-09-15', '2020-09-15 19:06:08'),
+('CSI 311 B', 'F01192138', 11163078, '2020-09-14', '2020-09-15 19:11:55'),
+('CSI 311 B', 'F01192138', 11163075, '2020-09-14', '2020-09-15 19:11:55'),
+('CSI 311 B', 'F01192138', 11162009, '2020-09-14', '2020-09-15 19:11:55'),
+('CSI 311 B', 'F01192138', 11163078, '2020-09-15', '2020-09-15 19:11:55'),
+('CSI 311 B', 'F01192138', 11163075, '2020-09-15', '2020-09-15 19:11:55'),
+('CSI 311 B', 'F01192138', 11162009, '2020-09-15', '2020-09-15 19:11:55'),
+('CSI 311 B', 'F01192138', 11163071, '2020-09-14', '2020-09-15 19:13:09'),
+('CSI 311 B', 'F01192138', 11172070, '2020-09-16', '2020-09-16 01:07:53'),
+('CSI 311 B', 'F01192138', 11171327, '2020-09-16', '2020-09-16 01:08:51'),
+('CSI 311 B', 'F01192138', 11163071, '2020-09-16', '2020-09-16 01:10:47');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `attendance_state`
+--
+
+CREATE TABLE `attendance_state` (
+  `attStateID` int(50) NOT NULL,
+  `t_id` varchar(100) CHARACTER SET latin1 NOT NULL,
+  `sec_name` varchar(100) CHARACTER SET latin1 NOT NULL,
+  `date` date NOT NULL,
+  `state` varchar(100) CHARACTER SET latin1 NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -226,7 +261,6 @@ INSERT INTO `classdate` (`sec_name`, `date`, `class_type`) VALUES
 ('CSI 341 B', '2020-09-27', 'regular'),
 ('CSI 341 B', '2020-09-28', 'make up'),
 ('CSI 321 A', '2020-09-14', 'extra'),
-('CSI 321 A', '2020-09-15', 'extra'),
 ('CSI 321 A', '2020-09-16', 'extra'),
 ('CSI 321 A', '2020-09-17', 'extra'),
 ('CSI 311 B', '2020-09-14', 'regular'),
@@ -243,7 +277,22 @@ INSERT INTO `classdate` (`sec_name`, `date`, `class_type`) VALUES
 ('CSI 312 C', '2020-09-26', 'regular'),
 ('CSI 312 C', '2020-09-27', 'regular'),
 ('CSI 312 C', '2020-09-28', 'regular'),
-('CSI 312 C', '2020-09-29', 'regular');
+('CSI 312 C', '2020-09-29', 'regular'),
+('CSI 322 C', '2020-09-15', 'regular'),
+('CSI 321 A', '2020-09-15', 'Makeup'),
+('CSI 227 C', '2020-09-14', 'regular'),
+('CSI 227 C', '2020-09-15', 'regular'),
+('CSI 227 C', '2020-09-16', 'regular'),
+('CSI 227 C', '2020-09-17', 'regular'),
+('CSI 227 C', '2020-09-18', 'regular'),
+('CSI 227 C', '2020-09-19', 'regular'),
+('CSI 227 C', '2020-09-20', 'regular'),
+('CSI 227 C', '2020-09-21', 'regular'),
+('CSI 227 C', '2020-09-22', 'regular'),
+('CSI 227 C', '2020-09-23', 'make up'),
+('CSI 227 C', '2020-09-24', 'regular'),
+('CSI 227 C', '2020-09-25', 'regular'),
+('CSI 227 C', '2020-09-26', 'regular');
 
 -- --------------------------------------------------------
 
@@ -262,6 +311,7 @@ CREATE TABLE `course` (
 
 INSERT INTO `course` (`c_code`, `c_name`) VALUES
 ('CSE 465', 'Web Programming'),
+('CSI 227', 'Algorithms'),
 ('CSI 311', 'System Analysis and Design '),
 ('CSI 312', 'System Analysis and Design Laboratory'),
 ('CSI 321', 'Software Engineering'),
@@ -378,6 +428,7 @@ CREATE TABLE `section` (
 
 INSERT INTO `section` (`c_code`, `t_id`, `sec_name`, `sec_start_time`, `sec_end_time`, `sec_room_number`, `sec_rfid_reader`, `sec_trimester`) VALUES
 ('CSE 465', 'F01172096', 'CSE 465 A', '11:00:00', '01:30:00', 410, '235r', '202'),
+('CSI 227', 'F01192138', 'CSI 227 C', '00:03:00', '23:00:00', 307, '307r', '202'),
 ('CSI-233', 'F01172096', 'CSI 233 A', '46:10:16', '60:10:16', 403, '403r', '202'),
 ('CSI 311', 'F01192138', 'CSI 311 B', '01:00:00', '23:00:00', 330, '330r', '202'),
 ('CSI 312', 'F01192138', 'CSI 312 C', '14:00:00', '16:30:00', 506, '506r', '202'),
@@ -460,7 +511,15 @@ INSERT INTO `studentjcourse` (`s_id`, `c_code`) VALUES
 (11172070, 'CSI 312'),
 (11163071, 'CSI 312'),
 (11163075, 'CSI 321'),
-(11172070, 'CSI 321');
+(11172070, 'CSI 321'),
+(11172070, 'CSI 227'),
+(11163078, 'CSI 227'),
+(11163071, 'CSI 227'),
+(11163075, 'CSI 227'),
+(11162009, 'CSI 227'),
+(11171327, 'CSI 227'),
+(11163075, 'CSI 311'),
+(11162009, 'CSI 311');
 
 -- --------------------------------------------------------
 
@@ -497,7 +556,15 @@ INSERT INTO `studentjsection` (`s_id`, `c_code`, `sec_name`) VALUES
 (11172070, 'CSI 312', 'CSI 312 C'),
 (11171327, 'CSI 311', 'CSI 311 B'),
 (11163075, 'CSI 321', 'CSI 321 A'),
-(11172070, 'CSI 321', 'CSI 321 A');
+(11172070, 'CSI 321', 'CSI 321 A'),
+(11172070, 'CSI 227', 'CSI 227 C'),
+(11163078, 'CSI 227', 'CSI 227 C'),
+(11163071, 'CSI 227', 'CSI 227 C'),
+(11163075, 'CSI 227', 'CSI 227 C'),
+(11162009, 'CSI 227', 'CSI 227 C'),
+(11171327, 'CSI 227', 'CSI 227 C'),
+(11163075, 'CSI 311', 'CSI 311 B'),
+(11162009, 'CSI 311', 'CSI 311 B');
 
 -- --------------------------------------------------------
 
@@ -551,7 +618,8 @@ INSERT INTO `teacherjcourse` (`t_id`, `c_code`) VALUES
 ('F01192137', 'MATH 205'),
 ('F01172096', 'MATH 205'),
 ('F01192138', 'CSI 311'),
-('F01192138', 'CSI 312');
+('F01192138', 'CSI 312'),
+('F01192138', 'CSI 227');
 
 -- --------------------------------------------------------
 
@@ -569,6 +637,18 @@ CREATE TABLE `temp_transaction` (
   `sale_qty` int(100) NOT NULL,
   `token` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `temp_transaction`
+--
+
+INSERT INTO `temp_transaction` (`id`, `vendor_id`, `item_id`, `item_name`, `item_unit_price`, `available_qty`, `sale_qty`, `token`) VALUES
+(438, 1, 20, 'Alu Bhaji', 50, 94, 1, 'ea89fbd7e9b3e4dba3e38880805d27'),
+(439, 1, 7, 'Apple Juice', 70, 87, 1, 'ea89fbd7e9b3e4dba3e38880805d27'),
+(440, 1, 7, 'Apple Juice', 70, 87, 1, 'ea89fbd7e9b3e4dba3e38880805d27'),
+(441, 1, 20, 'Alu Bhaji', 50, 94, 1, '09ed48b7ecb9b9c453de80c5fd57cc'),
+(442, 1, 7, 'Apple Juice', 70, 87, 0, '09ed48b7ecb9b9c453de80c5fd57cc'),
+(443, 1, 20, 'Alu Bhaji', 50, 94, 0, '0dd5d70c463164949095e591c710d0');
 
 -- --------------------------------------------------------
 
@@ -662,6 +742,20 @@ INSERT INTO `wallet` (`w_balance`, `r_tag`) VALUES
 ALTER TABLE `attendance`
   ADD KEY `t_id` (`t_id`),
   ADD KEY `s_id` (`s_id`),
+  ADD KEY `sec_name` (`sec_name`);
+
+--
+-- Indexes for table `attendance_state`
+--
+ALTER TABLE `attendance_state`
+  ADD PRIMARY KEY (`attStateID`),
+  ADD KEY `attendance_state_ibfk_1` (`t_id`),
+  ADD KEY `attendance_state_ibfk_2` (`sec_name`);
+
+--
+-- Indexes for table `classdate`
+--
+ALTER TABLE `classdate`
   ADD KEY `sec_name` (`sec_name`);
 
 --
@@ -766,6 +860,12 @@ ALTER TABLE `wallet`
 --
 
 --
+-- AUTO_INCREMENT for table `attendance_state`
+--
+ALTER TABLE `attendance_state`
+  MODIFY `attStateID` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=119;
+
+--
 -- AUTO_INCREMENT for table `item_list`
 --
 ALTER TABLE `item_list`
@@ -787,7 +887,7 @@ ALTER TABLE `student`
 -- AUTO_INCREMENT for table `temp_transaction`
 --
 ALTER TABLE `temp_transaction`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=438;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=444;
 
 --
 -- AUTO_INCREMENT for table `vendor`
@@ -806,6 +906,19 @@ ALTER TABLE `attendance`
   ADD CONSTRAINT `Attendance_ibfk_2` FOREIGN KEY (`s_id`) REFERENCES `student` (`s_id`),
   ADD CONSTRAINT `Attendance_ibfk_3` FOREIGN KEY (`sec_name`) REFERENCES `section` (`sec_name`),
   ADD CONSTRAINT `attendance_ibfk_1` FOREIGN KEY (`t_id`) REFERENCES `teacher` (`t_id`);
+
+--
+-- Constraints for table `attendance_state`
+--
+ALTER TABLE `attendance_state`
+  ADD CONSTRAINT `attendance_state_ibfk_1` FOREIGN KEY (`t_id`) REFERENCES `teacher` (`t_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `attendance_state_ibfk_2` FOREIGN KEY (`sec_name`) REFERENCES `section` (`sec_name`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `classdate`
+--
+ALTER TABLE `classdate`
+  ADD CONSTRAINT `classdate_ibfk_1` FOREIGN KEY (`sec_name`) REFERENCES `section` (`sec_name`);
 
 --
 -- Constraints for table `item_list`

@@ -73,7 +73,7 @@
   $t_photo=$_SESSION["t_photo"];
   $sec_name;
   $c_name;
-
+ $prsntSecNameNew;
 
   $_SESSION["role"]=$role;
    $_SESSION["id"]=$t_id;
@@ -397,7 +397,7 @@
                 
                   ?>
 
-                <button id="initBTN_<?php echo $prsntSecNameNew; ?>" onclick="initAtt('<?php echo $prsntSecNameNew; ?>');">INITIATE ATTENDANCE</button>
+                <button id="initBTN_<?php echo $prsntSecNameNew; ?>" onclick="initAtt('<?php echo $prsntSecNameNew; ?>' , '<?php echo $t_id?>');">INITIATE ATTENDANCE</button>
               </div> <!-- cards end -->
 
                 <?php
@@ -565,14 +565,15 @@
       
      <div id="initAttBody">
 
-       <label class="switch">
-          <input type="checkbox" id="customCheck" checked>
-          <span class="slider round"></span>
-        </label>
+      <div id="testCheckBox">
+        
+      </div>
 
-        <div id="initTableBody" class="initTableBody">
-          <h1 id="initText" style="color: green;">Attendance Sequence Initiated</h1>
+        <div id="ajaxLiveAtt">
+          
         </div>
+
+      
 
      </div>
 
@@ -596,6 +597,8 @@
 
 <script>
   var t_id = "<?php echo $t_id ?>" ;
+  var initiate='true';
+  var refresh;
 
   function courseDetails(sec_name, c_name){
 
@@ -828,7 +831,7 @@ function addAtt(sec_name,t_id,date){
 
 
 
-  function initAtt(prsntSecName){
+  function initAtt(prsntSecName,t_id){
 
      // Get the modal
   var modal1 = document.getElementById("initAttModal");
@@ -859,18 +862,129 @@ function addAtt(sec_name,t_id,date){
     }
   }
     
+/*    var x= document.getElementById('new').id="customCheck_";
 
-  $('#customCheck').on('click',function(){
-    if (document.getElementById('customCheck').checked == true) {
-      document.getElementById('initText').innerHTML='Attendance Sequence Initiated';
-      document.getElementById('initText').style.color='green';
-    }else{
-      document.getElementById('initText').innerHTML='Attendance Sequence Stopped';
-      document.getElementById('initText').style.color='red';
-    }
+    console.log(x );
+  */
 
-  });
 
+
+  var ajaxreq=new XMLHttpRequest();
+  ajaxreq.open("GET","ajaxLiveAtt.php?&sec_name="+prsntSecName+'&t_id='+t_id+"&initiate="+initiate); 
+
+
+  ajaxreq.onreadystatechange=function ()
+  {
+   if(ajaxreq.readyState==4 && ajaxreq.status==200)
+          {
+              
+               var response=ajaxreq.responseText;
+              
+               var divelm=document.getElementById('testCheckBox');
+              
+              
+               divelm.innerHTML=response;
+
+               var x= document.getElementById('new').id="customCheck_"+prsntSecName;
+
+        
+                clearInterval(refresh);
+                refresh = setInterval(ajaxViewLiveAtt,700,prsntSecName);
+
+              $('#customCheck_'+prsntSecName).on('click',function(){
+              if (document.getElementById('customCheck_'+prsntSecName).checked == true) {
+                document.getElementById('initText').innerHTML='Attendance Sequence Initiated';
+                document.getElementById('initText').style.color='green';
+                document.getElementById('ajaxLiveAtt').style.display='block';
+
+                initiate='true';
+                ajaxLiveAtt('true',prsntSecName,t_id);
+                
+
+              }else{
+                document.getElementById('initText').innerHTML='Attendance Sequence Stopped';
+                document.getElementById('initText').style.color='red';
+               /* document.getElementById('ajaxLiveAtt').style.display='none';*/
+
+                initiate='false';
+                ajaxLiveAtt('false',prsntSecName,t_id);
+                ajaxAttStateDel(prsntSecName,t_id);
+              }
+
+            });
+  
+          }
+  }
+  
+  ajaxreq.send();
+
+
+  } /*init attendance ends*/
+
+
+  function ajaxLiveAtt(init,prsntSecName,t_id){
+
+  var ajaxreq=new XMLHttpRequest();
+  ajaxreq.open("GET","ajaxLiveAtt.php?&sec_name="+prsntSecName+'&t_id='+t_id+"&initiate="+init); 
+
+  
+  ajaxreq.send();
+  initiate='true';
+
+
+  clearInterval(refresh);
+  refresh = setInterval(ajaxViewLiveAtt,700,prsntSecName);
+
+  }/*ajaxliveAtt*/
+
+
+
+  function ajaxViewLiveAtt(prsntSecName){
+  console.log('checking for: '+prsntSecName);
+  var ajaxreq=new XMLHttpRequest();
+  ajaxreq.open("GET","ajaxViewLiveAtt.php?&sec_name="+prsntSecName+'&t_id='+t_id); 
+
+
+  ajaxreq.onreadystatechange=function ()
+  {
+   if(ajaxreq.readyState==4 && ajaxreq.status==200)
+          {
+               var response=ajaxreq.responseText;
+              
+               var divelm=document.getElementById('ajaxLiveAtt');
+              
+              
+               divelm.innerHTML=response;
+               
+          }
+  }
+  
+  ajaxreq.send();
+
+  } /*ajaxViewLiveAtt*/
+
+  function ajaxAttStateDel(prsntSecName,t_id){
+
+    var ajaxreq=new XMLHttpRequest();
+  ajaxreq.open("GET","ajaxAttStateDel.php?&sec_name="+prsntSecName+'&t_id='+t_id); 
+
+/*   ajaxreq.onreadystatechange=function ()
+  {
+   if(ajaxreq.readyState==4 && ajaxreq.status==200)
+          {
+               var response=ajaxreq.responseText;
+              
+               var divelm=document.getElementById('testCheckBox');
+              
+                 console.log('trying to delete');
+               divelm.innerHTML=response;
+               
+          }
+  }*/
+  
+
+  
+  ajaxreq.send();
 
   }
 

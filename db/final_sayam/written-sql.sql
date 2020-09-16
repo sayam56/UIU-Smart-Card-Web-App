@@ -536,3 +536,88 @@ INSERT INTO `studentjsection` (`s_id`, `c_code`, `sec_name`) VALUES
  ('11172070', 'CSI 311', 'CSI 311 B'),
  ('11172070', 'CSI 312', 'CSI 312 C'),
  ('11171327', 'CSI 311', 'CSI 311 B');
+
+
+
+
+.............................15.09.20............................
+
+
+
+INSERT INTO `course` (`c_code`, `c_name`) VALUES ('CSI 227', 'Algorithms');
+
+
+INSERT INTO `teacherjcourse` (`t_id`, `c_code`) VALUES ('F01192138', 'CSI 227');
+
+INSERT INTO `section` (`c_code`, `t_id`, `sec_name`, `sec_start_time`, `sec_end_time`, `sec_room_number`, `sec_rfid_reader`, `sec_trimester`) VALUES
+ ('CSI 227', 'F01192138', 'CSI 227 C', '00:03:00', '23:00:00', '307', '307r', '202');
+
+INSERT INTO `teacherjcourse` (`t_id`, `c_code`) VALUES ('F01192138', 'CSI 227');
+
+
+INSERT INTO `studentjcourse` (`s_id`, `c_code`) VALUES
+ ('11172070', 'CSI 227'),
+ ('11163078', 'CSI 227'),
+ ('11163071', 'CSI 227'),
+ ('11163075', 'CSI 227'),
+ ('11162009', 'CSI 227'),
+ ('11171327', 'CSI 227');
+
+
+INSERT INTO `studentjcourse` (`s_id`, `c_code`) VALUES
+ ('11163075', 'CSI 311'),
+ ('11162009', 'CSI 311');
+
+
+INSERT INTO `studentjsection` (`s_id`, `c_code`, `sec_name`) VALUES
+ ('11172070', 'CSI 227', 'CSI 227 C'),
+ ('11163078', 'CSI 227', 'CSI 227 C'),
+ ('11163071', 'CSI 227', 'CSI 227 C'),
+ ('11163075', 'CSI 227', 'CSI 227 C'),
+ ('11162009', 'CSI 227', 'CSI 227 C'),
+ ('11171327', 'CSI 227', 'CSI 227 C'),
+ ('11163075', 'CSI 311', 'CSI 311 B'),
+ ('11162009', 'CSI 311', 'CSI 311 B');
+
+
+INSERT INTO `classdate` (`sec_name`, `date`, `class_type`) VALUES
+ ('CSI 227 C', '2020-09-14', 'regular'),
+ ('CSI 227 C', '2020-09-15', 'regular'),
+ ('CSI 227 C', '2020-09-16', 'regular'),
+ ('CSI 227 C', '2020-09-17', 'regular'),
+ ('CSI 227 C', '2020-09-18', 'regular'),
+ ('CSI 227 C', '2020-09-19', 'regular'),
+ ('CSI 227 C', '2020-09-20', 'regular'),
+ ('CSI 227 C', '2020-09-21', 'regular'),
+ ('CSI 227 C', '2020-09-22', 'regular'),
+ ('CSI 227 C', '2020-09-23', 'make up'),
+ ('CSI 227 C', '2020-09-24', 'regular'),
+ ('CSI 227 C', '2020-09-25', 'regular'),
+ ('CSI 227 C', '2020-09-26', 'regular');
+
+
+
+
+INSERT INTO `attendance` (`sec_name`, `t_id`, `s_id`, `date`, `time`) VALUES
+ ('CSI 227 C', 'F01192138', '11172070', '2020-09-14', current_timestamp()),
+ ('CSI 227 C', 'F01192138', '11163078', '2020-09-14', current_timestamp()),
+ ('CSI 227 C', 'F01192138', '11163071', '2020-09-14', current_timestamp()),
+ ('CSI 227 C', 'F01192138', '11163075', '2020-09-14', current_timestamp()),
+ ('CSI 227 C', 'F01192138', '11162009', '2020-09-14', current_timestamp()),
+ ('CSI 227 C', 'F01192138', '11171327', '2020-09-14', current_timestamp()),
+ ('CSI 227 C', 'F01192138', '11172070', '2020-09-15', current_timestamp()),
+ ('CSI 227 C', 'F01192138', '11163078', '2020-09-15', current_timestamp()),
+ ('CSI 227 C', 'F01192138', '11163071', '2020-09-15', current_timestamp()),
+ ('CSI 227 C', 'F01192138', '11163075', '2020-09-15', current_timestamp()),
+ ('CSI 227 C', 'F01192138', '11162009', '2020-09-15', current_timestamp()),
+ ('CSI 227 C', 'F01192138', '11171327', '2020-09-15', current_timestamp());
+
+
+
+INSERT INTO `attendance` (`sec_name`, `t_id`, `s_id`, `date`, `time`) VALUES
+ ('CSI 311 B', 'F01192138', '11163078', '2020-09-14', current_timestamp()),
+ ('CSI 311 B', 'F01192138', '11163075', '2020-09-14', current_timestamp()),
+ ('CSI 311 B', 'F01192138', '11162009', '2020-09-14', current_timestamp()),
+ ('CSI 311 B', 'F01192138', '11163078', '2020-09-15', current_timestamp()),
+ ('CSI 311 B', 'F01192138', '11163075', '2020-09-15', current_timestamp()),
+ ('CSI 311 B', 'F01192138', '11162009', '2020-09-15', current_timestamp());
