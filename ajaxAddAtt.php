@@ -1,3 +1,5 @@
+
+
 <?php
 	   /*DB connect*/
   try{
@@ -36,10 +38,18 @@
                         $insert->execute();
 
                         echo "<h1>Student Attendance Updated</h1>";
+
+
+
                      
                  }else{
                         echo "<h1>Student Already Attended</h1>";
                  }
+/*
+                         echo "sec_name : ".$section."<br>";
+                         echo "t_id : ".$t_id."<br>";
+                         echo "s_id : ".$s_id."<br>";
+                         echo "date : ".$date."<br>";*/  
 
                 
             } catch (PDOException $ex) {

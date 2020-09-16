@@ -59,6 +59,7 @@
             							$_SESSION["s_tag"]=$key[1];
             							$_SESSION["s_id"]=$key[0];
             							$_SESSION["role"]=$role;
+            							$_SESSION["s_photo"]=$key[8];
 		                            header('Location: student_dashboard.php');
 		                            break;
 		                            }

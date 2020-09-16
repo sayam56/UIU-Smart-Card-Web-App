@@ -512,8 +512,8 @@
     </div>
     <div class="modal-body">
            <!-- form here -->
-           
-      <div class="inputBox">
+
+             <div class="inputBox">
       <!-- here goes the input types -->
       
         <div class="textbox">
@@ -529,7 +529,7 @@
 
       
 
-      <button type="submit" class="modalAddBTN" style="width: 300px; margin-left: 30vw;" id="sidAddAtt">Add Attendance</button>
+      <button type="submit" class="modalAddBTN" style="width: 300px; margin-left: 30vw;" id="sidAddAtt" onclick="sidInsert();">Add Attendance</button>
 
 
       <div id="testDiv">
@@ -599,6 +599,10 @@
   var t_id = "<?php echo $t_id ?>" ;
   var initiate='true';
   var refresh;
+
+  var bugFix_sec_name='';
+  var bugFix_t_id='';
+  var bugFix_date='';
 
   function courseDetails(sec_name, c_name){
 
@@ -746,6 +750,10 @@ var ajaxreq=new XMLHttpRequest();
 
 function addAtt(sec_name,t_id,date){
 
+  bugFix_sec_name = sec_name;
+  bugFix_t_id = t_id;
+  bugFix_date = date;
+
 
       // Get the modal
   var modal1 = document.getElementById("addAttModal");
@@ -766,6 +774,12 @@ function addAtt(sec_name,t_id,date){
   // When the user clicks on <span> (x), close the modal
   span1.onclick = function() {
     modal1.style.display = "none";
+
+    $("#testDiv").html("");
+    var btn = document.getElementById('sidInput').value='';
+/*    $('#addAttBTN').html('');*/
+/*    $().removeData();*/
+
     
   }
 
@@ -775,11 +789,20 @@ function addAtt(sec_name,t_id,date){
       modal1.style.display = "none";
     }
   }
-    
-  $('#sidAddAtt').on('click',function(){
-   var sid= $('#sidInput').val();
 
-   var ajaxreq=new XMLHttpRequest();
+
+
+  } /*add att ends*/
+
+
+
+  function sidInsert(){
+
+
+   var sid= $('#sidInput').val();
+/*   console.log('the params: sec_name: '+bugFix_sec_name+' t_id: '+bugFix_t_id+' date= '+bugFix_date+' s-id: '+sid);*/
+
+ var ajaxreq=new XMLHttpRequest();
   ajaxreq.open("POST","ajaxAddAtt.php",true); 
 
   ajaxreq.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -797,7 +820,7 @@ function addAtt(sec_name,t_id,date){
              if (response.includes("Updated")) {
 
   var ajaxreq2=new XMLHttpRequest();
-  ajaxreq2.open("GET","ajaxViewRecAtt.php?&sec_name="+sec_name+'&date='+date+'&t_id='+t_id); 
+  ajaxreq2.open("GET","ajaxViewRecAtt.php?&sec_name="+bugFix_sec_name+'&date='+bugFix_date+'&t_id='+bugFix_t_id); 
 
 
   ajaxreq2.onreadystatechange=function ()
@@ -820,14 +843,14 @@ function addAtt(sec_name,t_id,date){
              
           }
   }
-  
-  ajaxreq.send("sec_name="+sec_name+"&t_id="+t_id+"&date="+date+"&s_id="+sid); 
+/*  
+  console.log('inside add att and sending req to ajaxAddAtt, the params: sec_name: '+sec_name+' t_id: '+t_id+' date= '+date+' s-id: '+sid);*/
+    $("#testDiv").html("");
+  ajaxreq.send("sec_name="+bugFix_sec_name+"&t_id="+bugFix_t_id+"&date="+bugFix_date+"&s_id="+sid); 
 
-  });
 
 
-
-  } /*add att ends*/
+  }
 
 
 

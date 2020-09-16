@@ -21,7 +21,7 @@
 
 /* echo "sec_name : ".$section."<br>";
  echo "t_id : ".$t_id."<br>";
- echo "date : ".$date."<br>";*/  
+ echo "date : ".$date."<br>";  */
 
 
  /*begin here
@@ -50,7 +50,7 @@
 
          </div>
         
-        <table class="table" style="width: 90%; margin: auto; height: 480px; margin-bottom: 50px;">
+         <table class="table" style="width: 90%; margin: auto; height: 480px; margin-bottom: 50px;">
                 <thead class="thead-dark" style="text-align: center;">
 
                   <tr>
@@ -127,7 +127,7 @@
                       </tbody>
               
 
-              </table>
+              </table> 
         
            
               <?php
@@ -142,6 +142,10 @@
 
 
 
+
+$sec_name = '';
+ $t_id = '';
+ $date = '';
 
 
           
