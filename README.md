@@ -3,8 +3,7 @@ A web application for teachers, students and listed vendors of any educational i
 
 
 #To Do:
-1. Wallet Recharge Front (Fill-Up!) <br>
-3. Implement Admin Panel. <br><br>
+1. Implement Admin Panel. <br><br>
 
 
 Andriod Support Application: https://github.com/sayam56/UIU_Smart_Card
