@@ -77,7 +77,7 @@ void loop()
  
   //Post Data
  
-  Link = "http://a31d874e3f40.ngrok.io/smart_id/arduinoPayment.php?r_tag="+content+"&vendor_id=1";
+  Link = "http://60981faa56e2.ngrok.io/smart_id/arduinoPayment.php?r_tag="+content+"&vendor_id=1";
   Serial.println(Link);
   
   http.begin(Link);    

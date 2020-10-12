@@ -218,7 +218,7 @@ margin-right: 5px;
 }
 
 
-#wallet,#logout,#live{
+#wallet,#logout,#live,#courses{
   display: none;
 }
 
@@ -628,10 +628,17 @@ box-shadow: inset 8px 8px 16px #cccccc,
 
 .cards h4{
   margin-left: 2vw;
-  margin-top: 8vh;
+  margin-top: 6vh;
   margin-bottom: -10vh;
   color: grey;
 
+}
+
+.cards h5{
+  margin-left: 2vw;
+  margin-top: 12vh;
+  margin-bottom: -14vh;
+  color: grey;
 }
 
 .cards button{
@@ -741,4 +748,36 @@ input:checked + .slider:before {
 .initTableBody{
   display: block;
   margin-top: -40px;
+}
+
+/*-------------------------------------------------REFILL--------------------------------*/
+.refillBTN{
+    color: white;
+    text-align: center;
+    font-size: 25px;
+    transition-duration: 0.5s;
+    cursor: pointer;
+    background: white;
+    font-weight: 600;
+    color: #F05E23; 
+    border-width: 2px;
+    border-style: solid;
+    border-image: linear-gradient(to top right, #FFBF00 0%, #F05E23 50%) 1;
+    width: 20vw;
+    height: 9vh;
+    margin-left: 30vw;
+    margin-top: 40px;
+    margin-bottom: 40px;
+
+}
+
+
+.refillBTN:hover{
+  transition-duration: 0.5s;
+  color: white;
+    border: .1px solid #F05E23;
+    background: linear-gradient(to top right, #FFBF00 0%, #F05E23 50%);
+    border-radius: 0px;
+    filter: drop-shadow(0px 0px 10px #F05E23);
+    transition-duration: 0.7s;
 }

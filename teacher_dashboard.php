@@ -268,7 +268,7 @@
                   <tr>
                     <th width="5%">Transaction No.</th>
                     <th width="25%">Amount</th>
-                    <th width="25%">Vendor ID</th>
+                    <th width="25%">Vendor Name</th>
                     <th width="45%">Transaction ID</th>
                   </tr>
                   
@@ -287,7 +287,7 @@
                     #table is empty as in to room available
                     ?>
                       <tr>
-                        <td colspan="7" style="text-align: center;">NOTHING TO SHOW</td>
+                        <td colspan="4" style="text-align: center;">NOTHING TO SHOW</td>
                       </tr>
                     <?php
                   }else

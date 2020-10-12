@@ -6,7 +6,7 @@
   <meta name="author" content="Ali Iktider Sayam">
   <meta name="description" content="RFID Based Smart Card System">
   <meta name="keywords" content="RFID,Smart,Card">
-  <title>UIU Smart Card-Student</title>
+  <title>UIU Smart Card-Fill Up</title>
 
   <link rel="stylesheet" href="css/dashboard.css">
   <link rel="icon" href="res/logo.ico">
@@ -46,9 +46,9 @@
 
 <?php
   session_start();
-  $s_name=$_SESSION["s_name"];
+  $su_name=$_SESSION["su_name"];
 
-  if (isset($_SESSION['s_name'])) {
+  if (isset($_SESSION['su_name'])) {
      echo "<script>console.log('inside if and it works');</script>";
    } 
  else{
@@ -56,16 +56,6 @@
   window.location.href = 'login.php'; </script>"; 
  /* header("Location: login.php");*/ /* Redirect browser */
  }
-
-  $s_email=$_SESSION["s_email"];
-  $s_tag=$_SESSION["s_tag"];
-  $s_id=$_SESSION["s_id"];
-  $role=$_SESSION["role"];
-  $s_photo=$_SESSION["s_photo"];
-  $running_trimester=$_SESSION["running_trimester"];
-  $_SESSION["role"]=$role;
-   $_SESSION["id"]=$s_id;
-   $_SESSION["running_trimester"]=$running_trimester;
 
 
   /*DB connect*/
@@ -100,13 +90,9 @@
         <li><a href="#">
           <i class="fas fa-bell"></i>
           </a></li> -->
-          <a href="profile.php" class="userName">
-          <?php echo"$s_name"; ?>
+          <a href="#" class="userName">
+          <?php echo"$su_name"; ?>
           </a>
-
-        <li><a href="profile.php">
-          <img src="<?php echo $s_photo ?>">
-          </a></li>
       </ul>
     </div>
   </div>
@@ -114,12 +100,12 @@
   <div class="sidebar">
       <ul>
         <li><a href="#" class="catalog active">
-          <span class="icon"><i class="fas fa-university"></i></span>
-          <span class="title">Courses</span></a></li>
+          <span class="icon"><i class="fas fa-cash-register"></i></span>
+          <span class="title">Fill Up</span></a></li>
 
         <li><a href="#" class="wallet">
-          <span class="icon"><i class="fas fa-wallet"></i></span>
-          <span class="title">Wallet</span>
+          <span class="icon"><i class="fas fa-money-check-alt"></i></span>
+          <span class="title">Transactions</span>
           </a></li>
 
         <li><a href="logout.php">
@@ -133,98 +119,23 @@
 
 
     <div class="item" id="catalog">
-      <h1>Running Courses:</h1>
-      <div class="courses">
+      <h5 style="font-size: 4vh; text-align: center; margin-bottom:8vh;">⇝ Please Enter ID & Amount - <h5>
+       <div class="inputBox" style="height: 20vh; width: 45vw;">
+          <!-- here goes the input types -->
+          
+            <div class="textbox">
+                      <i class="far fa-id-card"></i>
+                      <input type="text" name="id" id="fillerID" placeholder="Enter ID" required>
+                    </div>
 
-      <?php
+                  <div class="textbox">
+                     <i class="fas fa-sort-amount-up"></i>
+                      <input type="text" name="amount" id="fillerAmount" placeholder="Enter Amount To Add" required>
+                  </div>   
 
-        try{
+          </div><!-- inputBox -->
 
-          $query = "SELECT c_code FROM studentjcourse WHERE s_id='$s_id' AND offered_trimester='$running_trimester' ";
-          $cobj = $conn->query($query);
-
-          $t_name;
-
-          if ($cobj->rowCount() == 0) {
-            ?>
-
-            <h1>No courses taken this trimester</h1>
-
-            <?php
-          } /*if ends*/
-
-          else{
-
-          $ctable = $cobj->fetchAll();
-
-          foreach ($ctable as $c_code) {
-
-          $sec_nameqry = "SELECT sec_name FROM studentjsection WHERE c_code='".$c_code[0]."' AND s_id='$s_id' ";
-          $sec_nameobj = $conn->query($sec_nameqry);
-          $sec_nametab = $sec_nameobj->fetchAll();
-
-          foreach ($sec_nametab as $sec_name) {
-
-
-            $tid = " SELECT t_id FROM section WHERE sec_name='$sec_name[0]' ";
-            $tidObj = $conn->query($tid);
-            $tidTable = $tidObj->fetchAll();
-
-            foreach ($tidTable as $teacherID) {
-              $tname= "SELECT t_name FROM teacher WHERE t_id='$teacherID[0]' ";
-              $tnameObj = $conn->query($tname);
-              $tnameTable = $tnameObj->fetchAll();
-
-              foreach ($tnameTable as $teachername) {
-                $t_name = $teachername[0];
-              }
-            }
-
-
-              $c_nameqry = "SELECT c_name FROM course WHERE c_code='".$c_code[0]."' ";
-              $c_nameobj = $conn->query($c_nameqry);
-              $c_nametable = $c_nameobj->fetchAll();
-              foreach ($c_nametable as $c_name ) {
-                  ?>
-
-                <div class="cards">
-                
-                <h3><?php echo $sec_name[0]; ?></h3>
-
-                <h4><?php echo $c_name[0]; ?></h4>
-                <h5><?php echo $t_name; ?></h5>
-
-                <?php 
-                $sec_name=  str_replace(" ","_","$sec_name[0]"); 
-                  $c_name=  str_replace(" ","_","$c_name[0]"); 
-                  ?>
-
-                <button id="detailsBTN_<?php echo $sec_name; ?>" onclick="courseDetails('<?php echo $sec_name ?>','<?php echo $c_name ?>');">DETAILS</button>
-              </div> <!-- cards end -->
-
-                <?php
-
-              } /*inner inner foreach ends*/
-
-          } /*inner foreach*/
-
-
-         
-            
-          } /*outer for each*/
-
-        }/*else ends*/
-
-        }catch(PDOException $e){
-
-          echo $e;
-        }/*catch ends*/
-
-      ?>
-
-       
-
-      </div><!-- courses end -->
+          <button type="submit" class="refillBTN" onclick="refillWallet();">Refill Wallet</button>
 
    </div> <!-- catalog div ends-->
 
@@ -232,27 +143,7 @@
 
 
     <div class="item" id="wallet">
-
-      <h1>Transactions</h1>
-      <?php
-      try{
-        $balanceSQL= "SELECT w_balance FROM wallet WHERE r_tag='$s_tag' ";
-        $balanceOBJ= $conn->query($balanceSQL);
-        $balanceTable = $balanceOBJ->fetchAll();
-
-        foreach ($balanceTable as $balance) {
-          ?>
-          <h1 id="balance">Balance: <?php echo $balance[0]; ?> tk </h1>
-          <?php
-        }
-
-      }catch(PDOException $ex){
-
-        echo $ex;
-      }
-
-      ?>
-      
+    <h1>Transactions:</h1>
 
       
 
@@ -261,27 +152,28 @@
 
                   <tr>
                     <th width="5%">Transaction No.</th>
-                    <th width="25%">Amount</th>
                     <th width="25%">Vendor Name</th>
+                    <th width="25%">Payer Tag</th>
+                    <th width="25%">Amount</th>
+                    
                     <th width="45%">Transaction ID</th>
                   </tr>
                   
                 </thead>
             
-          
-              
+                   
                 <tbody class="table" style="color: black;">
                   <?php
 
                   $count = 1;
-                  $sqll= "SELECT * FROM transaction where r_tag= '".$s_tag."'";
+                  $sqll= "SELECT * FROM transaction ";
                   $objj = $conn->query($sqll);
 
                   if ($objj -> rowCount() == 0) {
                     #table is empty as in to room available
                     ?>
                       <tr>
-                        <td colspan="7" style="text-align: center;">NOTHING TO SHOW</td>
+                        <td colspan="5" style="text-align: center;">NOTHING TO SHOW</td>
                       </tr>
                     <?php
                   }else
@@ -297,8 +189,6 @@
 
                         <td width="5%"><?php echo $count ?></td> 
 
-                        
-                        <td width="25%"><?php echo $vall[2] ?> tk</td>
                         <?php 
                           $sqlname= "SELECT vendor_name FROM vendor where vendor_id= '".$vall[4]."'";
                           $objname = $conn->query($sqlname);
@@ -312,6 +202,12 @@
                         ?>
 
                         <td width="25%"><?php echo $vendor_name ?> </td>
+
+                        <td width="25%"><?php echo $vall[1] ?> </td>
+
+
+                        <td width="25%"><?php echo $vall[2] ?> tk</td>
+
 
                         <td width="45%"><?php echo $vall[0] ?></td>
 
@@ -332,7 +228,6 @@
               </table>
 
 
-
     </div> <!-- wallet div ends -->
 
   
@@ -351,22 +246,22 @@
 <!-- The Modal -->
 
 
-
-<div id="detailsModal" class="modal">
+<div id="successModal" class="modal">
 
   <!-- Modal content -->
   <div class="modal-content">
     <div id="animation" >
     <div class="modal-header">
-      <span class="close detailsClose">&times;</span>
+      <span class="close finalClose">&times;</span>
       
     </div>
     <div class="modal-body">
-      
-     <div id="courseDetailsModal">
-       
-     </div>
+    <h1>Fill Up Successful!</h1>
 
+   
+      <div id="successBody">
+        
+      </div>
     </div> <!-- modal body ends -->
     <div class="modal-footer">
 
@@ -375,8 +270,34 @@
     </div>
   </div>
 
-</div> <!-- detailsModal ends -->
+</div> <!-- successModal ends -->
 
+
+<div id="errorModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div id="animation" >
+    <div class="modal-header">
+      <span class="close errClose">&times;</span>
+      
+    </div>
+    <div class="modal-body">
+    <h1>!!! ERROR !!!</h1>
+
+   
+      <div id="r_tag">
+        
+      </div>
+    </div> <!-- modal body ends -->
+    <div class="modal-footer">
+
+      
+       </div><!-- animation -->
+    </div>
+  </div>
+
+</div> <!-- errorModal ends -->
 
 
 
@@ -388,64 +309,78 @@
 
 
 <script>
-    var s_id = "<?php echo $s_id ?>" ;
 
-function courseDetails(sec_name, c_name){
-
-     // Get the modal
-var modal1 = document.getElementById("detailsModal");
-
-// Get the button that opens the modal
-var btn1 = document.getElementById("detailsBTN_"+sec_name);
-
-/*console.log(btn1);*/
-
-// Get the <span> element that closes the modal
-var span1 = document.getElementsByClassName("detailsClose")[0];
-
-// When the user clicks the button, open the modal 
-
-  modal1.style.display = "block";
+function refillWallet(){
+	var id= $('#fillerID').val();
+	var amount = $('#fillerAmount').val();
 
 
-// When the user clicks on <span> (x), close the modal
-span1.onclick = function() {
-  modal1.style.display = "none";
-  
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal1) {
-    modal1.style.display = "none";
-  }
-}
+	var ajaxreq=new XMLHttpRequest();
+	ajaxreq.open("GET","ajaxFill.php?&id="+id+'&amount='+amount); 
 
 
-  var ajaxreq=new XMLHttpRequest();
-  ajaxreq.open("GET","ajaxCourseDetailsStudent.php?&sec_name="+sec_name+'&c_name='+c_name+'&s_id='+s_id); 
+	  ajaxreq.onreadystatechange=function ()
+	  {
+	   if(ajaxreq.readyState==4 && ajaxreq.status==200)
+	          {
+	               var response=ajaxreq.responseText;
+	              
+	              if (response.includes('updated')) {
+                  var modal = document.getElementById("successModal");
+
+                  // Get the button that opens the modal
+                  var btn = document.getElementById("finalize");
+
+                  // Get the <span> element that closes the modal
+                  var span = document.getElementsByClassName("finalClose")[0];
+
+                  modal.style.display = "block";
 
 
-  ajaxreq.onreadystatechange=function ()
-  {
-   if(ajaxreq.readyState==4 && ajaxreq.status==200)
-          {
-               var response=ajaxreq.responseText;
-              
-               var divelm=document.getElementById('courseDetailsModal');
-              
-              
-               divelm.innerHTML=response;
-               
-          }
-  }
-  
-  ajaxreq.send();
+                  span.onclick = function() {
+                    modal.style.display = "none";
+                    
+                  }
 
-  } /*course details ends*/
+                  window.onclick = function(event) {
+                    if (event.target == modal) {
+                      modal.style.display = "none";
+                    }
+                  }
+
+                } /* udpated ends */
+                else{
+                  var modal = document.getElementById("errorModal");
+
+                  // Get the button that opens the modal
+                  var btn = document.getElementById("finalize");
+
+                  // Get the <span> element that closes the modal
+                  var span = document.getElementsByClassName("errClose")[0];
+
+                  modal.style.display = "block";
 
 
+                  span.onclick = function() {
+                    modal.style.display = "none";
+                    
+                  }
 
+                  window.onclick = function(event) {
+                    if (event.target == modal) {
+                      modal.style.display = "none";
+                    }
+                  }
+                } /* else error */
+	              
+	              
+	               divelm.innerHTML=response;
+	               
+	          }
+	  }
+	  
+	  ajaxreq.send();
+	}
 
 
 

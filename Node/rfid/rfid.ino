@@ -79,7 +79,7 @@ void loop()
  
   //Post Data
  
-  Link = "http://92a38ed380c0.ngrok.io/smart_id/arduinoAttendance.php?r_tag="+content+"&sec_rfid_reader=330r";
+  Link = "http://60981faa56e2.ngrok.io/smart_id/arduinoAttendance.php?r_tag="+content+"&sec_rfid_reader=330r";
   Serial.println(Link);
   
   http.begin(Link);    
