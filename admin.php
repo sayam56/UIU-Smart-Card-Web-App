@@ -166,8 +166,17 @@
     <div class="item" id="catalog">
       <h1>Students</h1>
 
+      <div class="cards">
+    
+      <h3>this is a h3</h3>
 
-   </div> <!-- catalog div ends-->
+      <h4>this is a h4</h4>
+
+      <button>Sample Card Button</button>
+      </div>
+
+
+   </div> <!-- student div ends-->
 
 
 
