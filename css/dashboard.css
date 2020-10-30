@@ -194,6 +194,21 @@ margin-right: 5px;
   padding: 15px;
   font-size: 14px;
   line-height: 22px;
+  
+  
+}
+.wrapper .main_container .item .item_header{
+  display: flex;
+  justify-content: space-between;
+  
+  
+}
+.wrapper .main_container .item .item_content{
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  
+  
 }
 
 .wrapper.collapse .sidebar{
@@ -604,7 +619,6 @@ box-shadow: inset 8px 8px 16px #cccccc,
   margin-left: 2vw;
 }
 
-
 .cards{
   display: inline-block;
   height: 25vh;
@@ -653,6 +667,213 @@ box-shadow: inset 8px 8px 16px #cccccc,
 .cards button:hover{
   color: white;
   background-color: #F05E23;
+}
+
+
+.cardss{
+  display: flex;
+  flex-direction: column;
+  height: 25vh;
+  width: 20vw;
+  margin-left: 2vw;
+  margin-bottom: 3vh;
+  margin-top: 2.5vh;
+  background: linear-gradient(225deg, #ffffff, #e6e6e6);
+  box-shadow:  -9px 9px 18px #bababa, 
+               9px -9px 18px #ffffff;
+}
+.cards_content{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+ 
+  
+}
+.cardss .cards_content img{
+  
+  
+  margin-left: 8px;
+  height: 70px;
+  width: 70px;
+  justify-self: flex-start;
+}
+.cardss .cards_content .details{
+  
+  width: 60%;
+  height: 100%;
+}
+
+.cardss .cards_content .details h3{
+  font-size: 16px;
+  margin-top: 35px;
+  margin-bottom: 10px;
+  margin-left: 20px;
+  color: grey;
+
+}
+
+.cardss .cards_content .details h4{
+  font-size: 16px;
+  margin-left: 20px;
+  margin-top: 20px;
+  
+  
+  color: grey;
+
+}
+.cardss .cards_content .icons{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  height: 100%;
+  width: 40px;
+  color: #F05E23;
+}
+
+.detailss{
+  padding: 20px;
+  height: 100%;
+  margin: 20px;
+  margin-top: 25px;
+  background: linear-gradient(225deg, #ffffff, #e6e6e6);
+  box-shadow:  -9px 9px 18px #bababa, 
+               9px -9px 18px #ffffff;
+  
+}
+
+.detailss>button{
+  margin: 15px;
+  padding: 15px;
+  color: white;
+  text-align: center;
+  font-size: 25px;
+  transition-duration: 0.5s;
+  cursor: pointer;
+  background: white;
+  font-weight: 600;
+  color: #F05E23; 
+  border-width: 2px;
+  border-style: solid;
+  border-image: linear-gradient(to top right, #FFBF00 0%, #F05E23 50%) 1;
+}
+
+.detailss>button:hover{
+  transition-duration: 0.5s;
+  color: white;
+    border: .1px solid #F05E23;
+    background: linear-gradient(to top right, #FFBF00 0%, #F05E23 50%);
+    border-radius: 0px;
+    filter: drop-shadow(0px 0px 10px #F05E23);
+    transition-duration: 0.7s;
+}
+
+.inputbox{
+  width: 80%;
+  margin-left: 30px;
+  margin: 10px ;
+  height: 40px;
+  background-color: transparent;
+  border: none;
+  border-bottom: gray 2px solid;
+  outline-style: none; 
+}
+
+.inputbox:focus{
+  width: 80%;
+  margin-left: 30px;
+  margin: 10px ;
+  height: 40px;
+  background-color: transparent;
+  border-bottom:#F05E23 2px solid;
+  outline-style: none;
+}
+
+#section{
+  position: absolute;
+  top: 50%;
+  left: 25%;
+  transform: translate(-50%,-25%);
+}
+
+
+.icon_cards{
+  height: 30px;
+  display: inline-block;
+  margin-top: 10px;
+  background-color: #fda257;
+  margin-left: 5px;
+  padding: 0px;
+}
+
+.icon_cards:hover{
+  height: 30px;
+  display: inline-block;
+  margin-top: 10px;
+  background-color: #fda257;
+  margin-left: 5px;
+  transform: scale(1.06);
+}
+
+.icon_cards i{
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-70%); 
+}
+
+.cardss h5{
+  margin-left: 2vw;
+  margin-top: 12vh;
+  margin-bottom: -14vh;
+  color: grey;
+}
+
+.cardss img{
+  height: 20vh;
+  width: 20vw;
+}
+
+.cardss button{
+  width: 20vw;
+  height: 5vh;
+  color: #F05E23;
+  border: 3px solid #F05E23;
+  font-weight: 600;
+}
+
+.cardss button:hover{
+  color: white;
+  background-color: #F05E23;
+}
+
+.cards_addstudent{
+  display: flex;
+  justify-content: space-evenly;
+  align-content: center;
+  height: 25vh;
+  width: 20vw;
+  margin-left: 2vw;
+  margin-bottom: 3vh;
+  margin-top: 2.5vh;
+  background: linear-gradient(225deg, #ffffff, #e6e6e6);
+  box-shadow:  -9px 9px 18px #bababa, 
+               9px -9px 18px #ffffff;
+}
+.cards_addstudent:hover{
+  transform: scale(0.99);
+}
+.cards_addstudent img{
+  margin-left: 6px;
+  height: 70px;
+  width: 70px;
+  margin-top: 50px;
+}
+.cards_addstudent h3{
+  margin-top: 70px;
+  
 }
 
 
