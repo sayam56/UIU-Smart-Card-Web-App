@@ -7,6 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	$codeQuery='';
 	$jsonVal="";
 	$count = 0;
+	$running_trimester;
 
 /*	$testarr = array();*/
 
@@ -20,8 +21,23 @@ catch(PDOException $e){
     
 }
 
+try {
+
+	$sqlquery="SELECT * from student where s_id= '".$s_id."' ";
+	$object=$conn->query($sqlquery);
+	$row1= $object->fetchAll();
+	foreach ($row1 as $key) {		
+		$running_trimester=$key[9];
+    
+    break;
+    }
+	
+} catch (PDOException $es) {
+	echo $es;
+}
+
 try{
-	$qry= "SELECT c_code FROM studentjcourse WHERE s_id='".$s_id."' ";
+	$qry= "SELECT c_code FROM studentjcourse WHERE s_id='".$s_id."' AND offered_trimester='$running_trimester' ";
 	$c_codeObj = $conn->query($qry);
 	$codeTab = $c_codeObj->fetchAll();
 

@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
 	if ($t_name == "Student") {
-		$sql = $qry= "SELECT s_name, s_id, s_email, s_password FROM student WHERE s_tag='".$r_tag."' ";
+		$sql = $qry= "SELECT s_name, s_id, s_email, s_password, s_department, s_batch FROM student WHERE s_tag='".$r_tag."' ";
 		$ress = mysqli_query($conn,$qry) or die($conn->error);
 	}
 	else{
@@ -51,7 +51,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	$result["name"] = $pieces[0];
 	$result["id"] = $pieces[1];
 	$result["email"] = $pieces[2];
-	$result["pass"] = $pieces[3];	
+	$result["pass"] = $pieces[3];
+	$result["dept"] = $pieces[4];
+	$result["batch"] = $pieces[5];		
 
 	if ($ress) 
 	{

@@ -1,4 +1,5 @@
 <?php
+date_default_timezone_set('Asia/Dhaka'); 
 $t_name = "";
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
