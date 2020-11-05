@@ -5,6 +5,4 @@ A web application for teachers, students and listed vendors of any educational i
 Andriod Support Application: https://github.com/sayam56/UIU_Smart_Card
 
 
-Rough Demo: https://drive.google.com/drive/folders/1MhteteVHwqdDmz9q26WkbClDtf_-5EE3?usp=sharing
-
-Final Project Demonstration Video Will Be Published Soon.
+Project Demo Video: https://youtu.be/2hITx4YWFkU
